@@ -17,7 +17,7 @@
   .word-list-mini{ max-width:var(--max-w); }
   .word-list-mini li{ margin-bottom:4px; }
   .summary-grid{ display:flex; gap:16px; flex-wrap:wrap; }
-  .summary-card{ flex:1 1 200px; background:#fff; border:2px solid var(--ink); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow); }
+  .summary-card{ flex:1 1 200px; background:#fff; border:1px solid var(--paper-line); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow-sm); }
 </style>
 </head>
 <body>
@@ -112,7 +112,7 @@
 
     <div class="exercise" id="p1">
       <div class="q">1️⃣ Що на фото?</div>
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/School_bag_backpack.jpg?width=420" alt="портфель" style="max-width:220px;border-radius:10px;border:2px solid #2B2A28;display:block;margin-bottom:12px" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'doodle',textContent:'🎒'}))">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/School_bag_backpack.jpg?width=420" alt="портфель" style="max-width:220px;border-radius:14px;display:block;margin-bottom:12px;box-shadow:var(--shadow-sm)" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'doodle',textContent:'🎒'}))">
       <div class="choices"></div>
       <div class="feedback"></div>
     </div>
