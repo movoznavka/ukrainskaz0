@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мій зошит — Українська мова, 4–5 клас</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .hero{
+    padding:52px 32px 20px 40px;
+    display:flex; gap:32px; align-items:center; flex-wrap:wrap;
+  }
+  .hero-text{ flex:1 1 380px; }
+  .hero-book{ flex:0 0 220px; }
+  .stat-row{ display:flex; gap:22px; flex-wrap:wrap; margin:18px 0 6px; }
+  .stat{ }
+  .stat b{ display:block; font-family:'Caveat',cursive; font-size:2.1rem; color:var(--sky); line-height:1; }
+  .stat span{ color:var(--ink-soft); font-size:0.85rem; }
+
+  .toc{ padding:10px 32px 10px 40px; }
+  .toc-row{
+    display:grid;
+    grid-template-columns:44px 1fr 1fr 130px;
+    gap:14px;
+    align-items:center;
+    padding:12px 10px;
+    border-bottom:1px solid rgba(43,42,40,0.08);
+  }
+  .toc-row.head{ font-weight:800; color:var(--ink-soft); font-size:0.82rem; border-bottom:2px solid var(--ink); }
+  .toc-row .num{ font-family:'Caveat',cursive; font-size:1.4rem; color:var(--gold); }
+  .toc-row .topic{ font-weight:700; }
+  .toc-row .grammar{ color:var(--ink-soft); font-size:0.92rem; }
+  .toc-row.ready{ background:var(--sky-pale); border-radius:10px; }
+  .toc-row.locked .topic, .toc-row.locked .grammar{ opacity:.55; }
+  .pencil{ font-size:0.82rem; color:var(--ink-soft); }
+  @media (max-width:640px){
+    .toc-row{ grid-template-columns:30px 1fr; grid-template-areas:"n t" ". g" ". a"; }
+    .toc-row .grammar{ grid-column:1/-1; }
+    .toc-row .action{ grid-column:1/-1; }
+  }
+</style>
+</head>
+<body>
+<div class="notebook">
+
+  <div class="hero page">
+    <div class="hero-text">
+      <span class="tag">Річна методичка · 4–5 клас</span>
+      <h1>Мій зошит з української</h1>
+      <p class="eyebrow-line">36 уроків для учня зі слабким словниковим запасом: у кожному уроці нова лексика і граматика йдуть разом, крок за кроком, від простого до складнішого.</p>
+      <div class="stat-row">
+        <div class="stat"><b>36</b><span>занять на рік</span></div>
+        <div class="stat"><b>1</b><span>урок готовий і чекає</span></div>
+        <div class="stat"><b>~60хв</b><span>на кожен урок</span></div>
+      </div>
+      <p><a class="btn" href="lessons/lesson-01.html">Відкрити урок 1 →</a></p>
+    </div>
+    <div class="hero-book" aria-hidden="true">
+      <svg viewBox="0 0 200 200" width="100%">
+        <rect x="30" y="20" width="140" height="160" rx="6" fill="#fff" stroke="#2B2A28" stroke-width="3"/>
+        <line x1="30" y1="20" x2="30" y2="180" stroke="#C1443A" stroke-width="4"/>
+        <g stroke="#DCE7F5" stroke-width="3">
+          <line x1="46" y1="55" x2="158" y2="55"/>
+          <line x1="46" y1="75" x2="158" y2="75"/>
+          <line x1="46" y1="95" x2="120" y2="95"/>
+          <line x1="46" y1="115" x2="158" y2="115"/>
+          <line x1="46" y1="135" x2="140" y2="135"/>
+        </g>
+        <circle cx="14" cy="40" r="5" fill="none" stroke="#2B2A28" stroke-width="3"/>
+        <circle cx="14" cy="100" r="5" fill="none" stroke="#2B2A28" stroke-width="3"/>
+        <circle cx="14" cy="160" r="5" fill="none" stroke="#2B2A28" stroke-width="3"/>
+        <text x="60" y="45" font-family="Caveat" font-size="18" fill="#D9A441">Урок 1</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="page">
+    <h2>Мета курсу</h2>
+    <p>Поступове розширення словникового запасу, формування навичок правильного мовлення та закріплення граматики через практику. Кожне заняття: нові слова → повторення → граматика → практика → мінітекст → робота з текстом → домашнє завдання → 5 слів для запам'ятовування.</p>
+  </div>
+
+  <div class="toc">
+    <h2>Річний план: 36 занять</h2>
+    <div class="toc-row head">
+      <div>№</div><div>Лексична тема</div><div>Граматика</div><div>Урок</div>
+    </div>
+    <div id="toc-body"></div>
+  </div>
+
+  <footer class="page-footer">
+    Проєкт зростатиме поступово — нові уроки додаються у теку <code>lessons/</code> і потрапляють у цей список.
+  </footer>
+</div>
+
+<script>
+  const lessons = [
+    ["Моє повсякденне життя","Слово, словосполучення, речення. Порядок слів у реченні"],
+    ["Моя сім'я","Іменник: хто? що?"],
+    ["Зовнішність людини","Прикметник: який? яка? яке? які?"],
+    ["Характер людини","Іменник + прикметник"],
+    ["Моя школа","Рід іменників"],
+    ["Шкільні предмети","Однина і множина"],
+    ["Мій день","Дієслово: що робити? що зробити?"],
+    ["Розпорядок дня","Теперішній, минулий і майбутній час"],
+    ["Мій дім","Відмінки іменників — знайомство"],
+    ["Моя кімната","Прийменники: у, в, на, під, біля, перед, за"],
+    ["Місто / село","Місцевий відмінок"],
+    ["Транспорт","Знахідний відмінок"],
+    ["Їжа","Родовий відмінок"],
+    ["У магазині","Кличний відмінок"],
+    ["Одяг","Узгодження прикметника з іменником"],
+    ["Пори року","Числівник"],
+    ["Погода","Прислівник: як? де? коли?"],
+    ["Природа","Однорідні члени речення"],
+    ["Тварини","Займенник"],
+    ["Мої домашні улюбленці","Особові займенники"],
+    ["Спорт","Дієслово: особа і число"],
+    ["Хобі та вільний час","Не з дієсловами"],
+    ["Друзі","Підмет і присудок"],
+    ["Емоції та почуття","Синоніми й антоніми"],
+    ["Подорожі","Словосполучення"],
+    ["Країни та міста","Власні та загальні назви"],
+    ["Свята і традиції","Велика буква у власних назвах"],
+    ["Інтернет і гаджети","Пряма мова — базове ознайомлення"],
+    ["Професії","Спільнокореневі слова"],
+    ["Майбутня професія","Будова слова: корінь, префікс, суфікс, закінчення"],
+    ["Книжки та фільми","Текст: тема й головна думка"],
+    ["Моя улюблена історія","План тексту. Послідовність подій"],
+    ["Повторення лексики","Повторення частин мови"],
+    ["Повторення граматики","Іменник + прикметник + дієслово"],
+    ["Я і світ","Робота з текстом"],
+    ["Фінальне повторення","Підсумкова контрольна робота"]
+  ];
+
+  const body = document.getElementById('toc-body');
+  lessons.forEach((l, i) => {
+    const n = i + 1;
+    const ready = n === 1;
+    const row = document.createElement('div');
+    row.className = 'toc-row ' + (ready ? 'ready' : 'locked');
+    row.innerHTML = `
+      <div class="num">${n}</div>
+      <div class="topic">${l[0]}</div>
+      <div class="grammar">${l[1]}</div>
+      <div class="action">${
+        ready
+          ? `<a class="btn small" href="lessons/lesson-${String(n).padStart(2,'0')}.html">Почати →</a>`
+          : `<span class="pencil">✏️ незабаром</span>`
+      }</div>`;
+    body.appendChild(row);
+  });
+</script>
+</body>
+</html>

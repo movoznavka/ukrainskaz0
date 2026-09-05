@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Урок 1. Моє повсякденне життя</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .hero-lesson{ padding:30px 32px 6px 40px; }
+  .goal-box{
+    background:var(--leaf-pale); border-left:5px solid var(--leaf);
+    border-radius:0 var(--radius) var(--radius) 0;
+    padding:14px 18px; max-width:var(--max-w); margin-top:10px;
+  }
+  .meta-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:14px; }
+  .meta-pill{ font-size:0.85rem; font-weight:700; color:var(--ink-soft); background:#fff; border:1px solid rgba(43,42,40,0.15); padding:5px 12px; border-radius:20px; }
+  .word-list-mini{ max-width:var(--max-w); }
+  .word-list-mini li{ margin-bottom:4px; }
+  .summary-grid{ display:flex; gap:16px; flex-wrap:wrap; }
+  .summary-card{ flex:1 1 200px; background:#fff; border:2px solid var(--ink); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow); }
+</style>
+</head>
+<body>
+
+<div class="progress-bar">
+  <a class="back-link" href="../index.html">← зошит</a>
+  <div class="progress-track"><div class="progress-fill"></div></div>
+  <div class="stars">☆☆☆☆☆☆☆☆</div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" data-target="#sec-words">Слова</div>
+  <div class="tab" data-target="#sec-review">Повторення</div>
+  <div class="tab" data-target="#sec-grammar">Граматика</div>
+  <div class="tab" data-target="#sec-practice">Практика</div>
+  <div class="tab" data-target="#sec-text">Текст</div>
+  <div class="tab" data-target="#sec-homework">ДЗ</div>
+  <div class="tab" data-target="#sec-summary">Підсумок</div>
+</div>
+
+<div class="notebook">
+
+  <div class="hero-lesson">
+    <span class="tag">Урок 1 · Моє повсякденне життя</span>
+    <h1>Мій звичайний день</h1>
+    <div class="goal-box">
+      <strong>Мета уроку:</strong> вивчити 10 слів про твій день, побудувати перше правильне речення і навчитися впізнавати слово, словосполучення та речення.
+    </div>
+    <div class="meta-row">
+      <span class="meta-pill">⏱ ≈ 60 хвилин</span>
+      <span class="meta-pill">📘 10 нових слів</span>
+      <span class="meta-pill">✏️ порядок слів у реченні</span>
+    </div>
+  </div>
+
+  <!-- ================= НОВІ СЛОВА ================= -->
+  <section id="sec-words" class="section page">
+    <div class="section-head">
+      <span class="section-num">1</span>
+      <h2>Нові слова</h2>
+    </div>
+    <p>Натисни на картку, щоб перевернути її та побачити пояснення й приклад. Слова з фото — речі й місця навколо тебе; слова з малюнком — те, що ти робиш вранці та ввечері.</p>
+    <div class="card-grid" id="vocab-grid"></div>
+  </section>
+
+  <!-- ================= ПОВТОРЕННЯ ================= -->
+  <section id="sec-review" class="section page">
+    <div class="section-head">
+      <span class="section-num">2</span>
+      <h2>Слова, які ти вже знаєш</h2>
+    </div>
+    <p>Це прості слова для розминки — перевір, чи пам'ятаєш ти їх усі.</p>
+    <div class="card-grid" id="review-grid"></div>
+  </section>
+
+  <!-- ================= ГРАМАТИКА ================= -->
+  <section id="sec-grammar" class="section page">
+    <div class="section-head">
+      <span class="section-num">3</span>
+      <h2>Слово · словосполучення · речення</h2>
+    </div>
+    <div class="summary-grid">
+      <div class="summary-card"><h3 style="margin-top:0">Слово</h3><p style="margin:0">Називає одну річ, дію чи ознаку.<br><em>школа, читати, веселий</em></p></div>
+      <div class="summary-card"><h3 style="margin-top:0">Словосполучення</h3><p style="margin:0">Два чи більше слів, пов'язаних за змістом.<br><em>моя школа, читати книжку</em></p></div>
+      <div class="summary-card"><h3 style="margin-top:0">Речення</h3><p style="margin:0">Виражає закінчену думку. Починається з великої літери.<br><em>Я йду до школи.</em></p></div>
+    </div>
+    <p style="margin-top:18px"><strong>Порядок слів у реченні.</strong> У звичайному українському реченні спочатку йде той, ХТО діє (підмет), потім те, ЩО він робить (присудок), а далі — інші слова:</p>
+    <p class="hand" style="font-size:1.4rem;color:var(--sky)">Хто? → що робить? → що / куди / коли?</p>
+    <p><em>Дівчинка читає книжку.</em> &nbsp;·&nbsp; <em>Я йду до школи.</em></p>
+
+    <div class="exercise">
+      <div class="q">🧩 Збери речення зі слів у правильному порядку:</div>
+      <div class="order-pool"></div>
+      <div class="order-answer"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="order-ex-2">
+      <div class="q">🧩 А тепер трохи довше речення:</div>
+      <div class="order-pool"></div>
+      <div class="order-answer"></div>
+      <div class="feedback"></div>
+    </div>
+  </section>
+
+  <!-- ================= ПРАКТИКА ================= -->
+  <section id="sec-practice" class="section page">
+    <div class="section-head">
+      <span class="section-num">4</span>
+      <h2>Практика</h2>
+    </div>
+    <p>Завдання йдуть від простих до складніших — не поспішай.</p>
+
+    <div class="exercise" id="p1">
+      <div class="q">1️⃣ Що на фото?</div>
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/School_bag_backpack.jpg?width=420" alt="портфель" style="max-width:220px;border-radius:10px;border:2px solid #2B2A28;display:block;margin-bottom:12px" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'doodle',textContent:'🎒'}))">
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise" id="p2">
+      <div class="q">2️⃣ Як називається дія — надягати на себе одяг?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise" id="p3">
+      <div class="q">3️⃣ Устав правильне слово: «Я ___ зуби щоранку.»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise" id="p4">
+      <div class="q">4️⃣ Обери те, що є СЛОВОСПОЛУЧЕННЯМ (не словом і не реченням):</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise">
+      <div class="q">5️⃣ Збери ще одне речення — про школу:</div>
+      <div class="order-pool"></div>
+      <div class="order-answer"></div>
+      <div class="feedback"></div>
+    </div>
+  </section>
+
+  <!-- ================= МІНІТЕКСТ + РОБОТА З ТЕКСТОМ ================= -->
+  <section id="sec-text" class="section page">
+    <div class="section-head">
+      <span class="section-num">5</span>
+      <h2>День Оленки</h2>
+    </div>
+    <p>Прочитай текст. У ньому — усі слова, які ти сьогодні вивчив.</p>
+    <div class="storybox" id="story"></div>
+
+    <h3 style="margin-top:26px">Робота з текстом</h3>
+    <div class="exercise" id="t1">
+      <div class="q">Що Оленка робить вранці спочатку?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="t2">
+      <div class="q">Куди Оленка йде з портфелем?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise">
+      <div class="q">Знайди й познач слова-ДІЇ (дієслова) у тексті — клікай прямо на слова вище, а тоді натисни «Перевірити».</div>
+      <button class="btn small" id="check-verbs">Перевірити</button>
+      <div class="feedback" id="verb-feedback"></div>
+    </div>
+  </section>
+
+  <!-- ================= ДОМАШНЄ ЗАВДАННЯ ================= -->
+  <section id="sec-homework" class="section page">
+    <div class="section-head">
+      <span class="section-num">6</span>
+      <h2>Домашнє завдання</h2>
+    </div>
+    <p>Коротко, без перевантаження — три маленькі кроки:</p>
+    <ul class="checklist" id="hw-list">
+      <li><input type="checkbox" id="hw1"><label for="hw1">Вивчити напам'ять 5 слів для запам'ятовування (нижче).</label></li>
+      <li><input type="checkbox" id="hw2"><label for="hw2">Скласти усно 3 речення зі словами «школа», «портфель», «гуляти».</label></li>
+      <li><input type="checkbox" id="hw3"><label for="hw3">Розповісти дорослим свій розпорядок дня, використавши хоча б 3 нових слова.</label></li>
+    </ul>
+  </section>
+
+  <!-- ================= ПІДСУМОК ================= -->
+  <section id="sec-summary" class="section page">
+    <div class="section-head">
+      <span class="section-num">7</span>
+      <h2>Слова для запам'ятовування</h2>
+    </div>
+    <div class="keywords">
+      <span class="keyword-pill">школа</span>
+      <span class="keyword-pill">портфель</span>
+      <span class="keyword-pill">урок</span>
+      <span class="keyword-pill">гуляти</span>
+      <span class="keyword-pill">снідати</span>
+    </div>
+    <p style="margin-top:20px">Сьогодні ти навчився(-лася) розрізняти слово, словосполучення й речення та правильно будувати порядок слів. Наступного уроку — <strong>«Моя сім'я»</strong> та іменники «хто? що?».</p>
+    <p><a class="btn ghost" href="../index.html">← Повернутись до зошита</a></p>
+  </section>
+
+  <footer class="page-footer">Урок 1 з 36 · Українська мова · 4–5 клас</footer>
+</div>
+
+<script src="../assets/lesson-kit.js"></script>
+<script>
+  const IMG = {
+    teeth:      "https://commons.wikimedia.org/wiki/Special:FilePath/US_Navy_080829-N-9774H-068_Interior_Communications_Electrician_3rd_Class_James_Thomas_teaches_children_how_to_properly_brush_their_teeth.jpg?width=480",
+    breakfast:  "https://commons.wikimedia.org/wiki/Special:FilePath/Elementary_school_%282nd_grade%29_students_eating_school_breakfast_in_the_cafeteria_-_20210727-FNS-UNC-0009.jpg?width=480",
+    backpack:   "https://commons.wikimedia.org/wiki/Special:FilePath/School_bag_backpack.jpg?width=480",
+    school:     "https://commons.wikimedia.org/wiki/Special:FilePath/Kids_walking_back_to_school.jpg?width=480",
+    classroom:  "https://commons.wikimedia.org/wiki/Special:FilePath/A_classroom_at_the_American_High_School_in_Herzliya_%28FL63448511%29.jpg?width=480",
+    playground: "https://commons.wikimedia.org/wiki/Special:FilePath/Children_in_Playground_-_Olinda_-_Outside_Recife_-_Brazil_%285995299007%29.jpg?width=480",
+    homework:   "https://commons.wikimedia.org/wiki/Special:FilePath/Child_engaged_in_drawing_activity_with_colorful_crayons_at_a_wooden_table.jpg?width=480"
+  };
+
+  // ---- дані уроку ------------------------------------------------
+  const vocab = [
+    { icon:"🌅", word:"прокидатися", translation:"переставати спати, розплющувати очі вранці", example:"Я прокидаюся о сьомій годині." },
+    { img:IMG.teeth, word:"чистити зуби", translation:"мити зуби щіткою, щоб вони були здорові", example:"Дитина чистить зуби зранку і ввечері." },
+    { img:IMG.breakfast, word:"снідати", translation:"їсти вранці, перший раз за день", example:"Родина снідає разом на кухні." },
+    { icon:"👕", word:"одягатися", translation:"надягати на себе одяг", example:"Хлопчик швидко одягається до школи." },
+    { img:IMG.backpack, word:"портфель", translation:"сумка, у якій носять зошити й книжки до школи", example:"У моєму портфелі лежать зошит і пенал." },
+    { img:IMG.school, word:"школа", translation:"місце, де діти навчаються", example:"Щоранку я йду до школи з друзями." },
+    { img:IMG.classroom, word:"урок", translation:"час, коли вчитель навчає учнів у класі", example:"Перший урок сьогодні — українська мова." },
+    { img:IMG.playground, word:"гуляти", translation:"бути надворі, бавитися на свіжому повітрі", example:"Після уроків діти гуляють у дворі." },
+    { img:IMG.homework, word:"домашнє завдання", translation:"вправи, які задав учитель на дім", example:"Увечері я роблю домашнє завдання за столом." },
+    { icon:"🌙", word:"лягати спати", translation:"йти в ліжко, щоб заснути", example:"Малий лягає спати о дев'ятій годині." }
+  ];
+
+  const review = [
+    { icon:"🏠", word:"дім", translation:"місце, де живе родина", example:"Наш дім стоїть біля парку." },
+    { icon:"👨‍👩‍👧", word:"сім'я", translation:"мама, тато, діти та інші рідні", example:"Моя сім'я велика і дружна." },
+    { icon:"🤝", word:"друг", translation:"людина, з якою тобі приємно і легко", example:"Мій друг живе поруч." },
+    { icon:"📖", word:"книга", translation:"сторінки з текстом, які читають", example:"Я читаю цікаву книгу." },
+    { icon:"🌄", word:"ранок", translation:"початок дня, коли сходить сонце", example:"Ранок сьогодні сонячний." }
+  ];
+
+  LessonKit.initFlashcards('#vocab-grid', vocab);
+  LessonKit.initFlashcards('#review-grid', review);
+  LessonKit.initTabs();
+  LessonKit.setTotalStars(8);
+
+  // ---- граматика: конструктори речень ----------------------------
+  const grammarBoxes = document.querySelectorAll('#sec-grammar .exercise');
+  LessonKit.initOrderBuilder(grammarBoxes[0], ["Дівчинка","читає","книжку"]);
+  LessonKit.initOrderBuilder(grammarBoxes[1], ["Після","уроків","діти","гуляють","у","дворі"]);
+
+  // ---- практика: вибір відповіді -----------------------------------
+  LessonKit.initChoice(document.getElementById('p1'), [
+    {text:"олівець", correct:false},
+    {text:"портфель", correct:true},
+    {text:"зошит", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('p2'), [
+    {text:"снідати", correct:false},
+    {text:"одягатися", correct:true},
+    {text:"гуляти", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('p3'), [
+    {text:"чищу", correct:true},
+    {text:"читаю", correct:false},
+    {text:"гуляю", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('p4'), [
+    {text:"школа", correct:false, },
+    {text:"моя школа", correct:true},
+    {text:"Я йду до школи.", correct:false}
+  ], "✓ Так! «моя школа» — два слова, пов'язані за змістом, без закінченої думки.", "✗ Подумай: тут має бути рівно два слова без крапки в кінці.");
+
+  const p5box = document.querySelectorAll('#sec-practice .exercise')[4];
+  LessonKit.initOrderBuilder(p5box, ["Перший","урок","сьогодні","українська","мова"]);
+
+  // ---- мінітекст ------------------------------------------------
+  const storyWords = "Вранці Оленка прокидається рано . Вона чистить зуби і швидко одягається . Родина снідає разом на кухні . Потім Оленка бере портфель і йде до школи . Перший урок — українська мова . Після уроків діти гуляють у дворі . Увечері Оленка робить домашнє завдання за столом . Коли настає ніч , вона лягає спати .".split(" ");
+  const verbTokens = ["прокидається","чистить","одягається","снідає","бере","йде","гуляють","робить","настає","лягає"];
+  const storyEl = document.getElementById('story');
+  let html = "<p>";
+  storyWords.forEach(tok => {
+    if (tok === "." ) { html += ". </p><p>"; return; }
+    if (tok === ",") { html += ", "; return; }
+    const clean = tok.replace(/[—]/g,'').trim();
+    if (verbTokens.includes(clean)) {
+      html += `<span class="clickable-word" data-verb="1">${tok}</span> `;
+    } else {
+      html += tok + " ";
+    }
+  });
+  html += "</p>";
+  storyEl.innerHTML = html;
+  LessonKit.initStoryHighlight('#story');
+
+  LessonKit.initChoice(document.getElementById('t1'), [
+    {text:"Сніданок", correct:false},
+    {text:"Прокидається", correct:true},
+    {text:"Урок", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('t2'), [
+    {text:"До школи", correct:true},
+    {text:"У двір", correct:false},
+    {text:"До ліжка", correct:false}
+  ]);
+
+  document.getElementById('check-verbs').addEventListener('click', (e) => {
+    const words = Array.from(document.querySelectorAll('#story .clickable-word'));
+    const marked = words.filter(w => w.classList.contains('marked'));
+    const allMarkedAreVerbs = marked.length > 0 && marked.every(w => w.dataset.verb === "1");
+    const foundAll = marked.length === words.length;
+    const fb = document.getElementById('verb-feedback');
+    if (allMarkedAreVerbs && foundAll) {
+      fb.textContent = `✓ Чудово! Ти знайшов(-ла) усі ${words.length} слів-дій.`;
+      fb.className = 'feedback ok';
+      LessonKit.addStar(e.clientX, e.clientY);
+    } else {
+      fb.textContent = `Позначено слів: ${marked.length} із ${words.length}. Придивись ще раз до дій у тексті.`;
+      fb.className = 'feedback no';
+    }
+  });
+
+  LessonKit.initChecklist('#hw-list');
+</script>
+</body>
+</html>

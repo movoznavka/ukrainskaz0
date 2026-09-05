@@ -1,0 +1,382 @@
+/* =========================================================
+   Українська мова 4–5 клас — «Зошит» design system
+   Тема: справжній шкільний зошит у клітинку з полями.
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap');
+
+:root{
+  --paper:      #FBF7EE;
+  --paper-line: #DCE7F5;
+  --ink:        #2B2A28;
+  --ink-soft:   #5B5850;
+  --margin-red: #C1443A;
+  --sky:        #3E7CB1;
+  --sky-pale:   #EAF2FB;
+  --gold:       #D9A441;
+  --gold-pale:  #FBF0D9;
+  --leaf:       #4F8A57;
+  --leaf-pale:  #E8F3E7;
+  --coral:      #E1665B;
+  --coral-pale: #FBEAE8;
+  --radius:     14px;
+  --shadow:     0 3px 0 rgba(43,42,40,0.08);
+  --max-w:      760px;
+  --tab-w:      64px;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  font-family:'Nunito', sans-serif;
+  color:var(--ink);
+  background-color:var(--paper);
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 37px,
+      var(--paper-line) 38px
+    );
+  background-attachment:local;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Спіральний "зошитовий" каркас сторінки ------------------ */
+.notebook{
+  position:relative;
+  max-width:980px;
+  margin:0 auto;
+  padding:0 0 80px 0;
+  background:var(--paper);
+  min-height:100vh;
+  border-left:3px solid var(--margin-red);
+  border-right:1px solid rgba(43,42,40,0.06);
+  margin-left:max(0px, calc(50% - 490px));
+  margin-right:max(0px, calc(50% - 490px));
+}
+
+.page{
+  padding:36px 32px 10px 40px;
+}
+
+@media (max-width:640px){
+  .notebook{ border-right:none; }
+  .page{ padding:24px 18px 10px 26px; }
+}
+
+/* Дірки від дірокола вздовж лівого краю -------------------- */
+.notebook::before{
+  content:"";
+  position:absolute;
+  top:0; bottom:0; left:-3px;
+  width:0;
+  border-left:3px solid var(--margin-red);
+}
+
+h1,h2,h3,.hand{
+  font-family:'Caveat', cursive;
+  font-weight:700;
+  color:var(--ink);
+  margin:0 0 6px 0;
+}
+h1{ font-size:2.6rem; line-height:1.05; }
+h2{ font-size:2rem; margin-top:0; color:var(--sky); }
+h3{ font-size:1.5rem; color:var(--margin-red); margin-bottom:10px; }
+
+p{ margin:0 0 14px 0; max-width:var(--max-w); }
+strong{ color:var(--ink); }
+
+a{ color:var(--sky); text-decoration:none; }
+a:hover{ text-decoration:underline; }
+
+.eyebrow-line{
+  color:var(--ink-soft);
+  font-size:1.05rem;
+  max-width:var(--max-w);
+}
+
+.tag{
+  display:inline-block;
+  font-family:'Nunito',sans-serif;
+  font-weight:700;
+  font-size:0.78rem;
+  padding:3px 10px;
+  border-radius:20px;
+  background:var(--sky-pale);
+  color:var(--sky);
+}
+
+/* Кнопки ---------------------------------------------------- */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:'Nunito',sans-serif;
+  font-weight:800;
+  font-size:1rem;
+  padding:12px 22px;
+  border-radius:100px;
+  border:2px solid var(--ink);
+  background:var(--gold);
+  color:var(--ink);
+  cursor:pointer;
+  box-shadow:var(--shadow);
+  transition:transform .12s ease;
+  text-decoration:none;
+}
+.btn:hover{ transform:translateY(-2px); text-decoration:none; }
+.btn:active{ transform:translateY(0); }
+.btn.ghost{ background:transparent; border-color:var(--sky); color:var(--sky); }
+.btn.small{ padding:8px 16px; font-size:0.9rem; }
+.btn[disabled]{ opacity:.45; cursor:not-allowed; transform:none; }
+
+/* Секційні "сторінки" зошита --------------------------------- */
+.section{
+  scroll-margin-top:20px;
+  padding:36px 0;
+  border-bottom:2px dashed rgba(43,42,40,0.15);
+}
+.section:last-of-type{ border-bottom:none; }
+
+.section-head{
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.section-num{
+  font-family:'Caveat', cursive;
+  font-size:1.6rem;
+  color:var(--gold);
+  border:2px solid var(--gold);
+  border-radius:50%;
+  width:40px; height:40px;
+  display:inline-flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+
+/* Липкі закладки-навігація по секціях ------------------------ */
+.tabs{
+  position:sticky;
+  top:0;
+  z-index:20;
+  display:flex;
+  gap:6px;
+  overflow-x:auto;
+  padding:10px 32px 10px 40px;
+  background:linear-gradient(var(--paper) 80%, transparent);
+  backdrop-filter:blur(2px);
+  scrollbar-width:none;
+}
+.tabs::-webkit-scrollbar{ display:none; }
+.tab{
+  flex:0 0 auto;
+  font-family:'Caveat',cursive;
+  font-weight:700;
+  font-size:1.15rem;
+  padding:7px 16px 5px;
+  border-radius:10px 10px 0 0;
+  background:var(--sky-pale);
+  color:var(--sky);
+  border:2px solid transparent;
+  cursor:pointer;
+  white-space:nowrap;
+}
+.tab.active{
+  background:var(--paper);
+  border:2px solid var(--sky);
+  border-bottom-color:var(--paper);
+}
+
+/* Картки словникових слів ------------------------------------ */
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(148px,1fr));
+  gap:16px;
+  margin:18px 0 8px;
+  max-width:900px;
+}
+.flip-card{
+  perspective:1000px;
+  height:190px;
+  cursor:pointer;
+}
+.flip-inner{
+  position:relative;
+  width:100%; height:100%;
+  transition:transform .5s cubic-bezier(.4,.2,.2,1);
+  transform-style:preserve-3d;
+}
+.flip-card.flipped .flip-inner{ transform:rotateY(180deg); }
+.flip-face{
+  position:absolute; inset:0;
+  border-radius:var(--radius);
+  border:2px solid var(--ink);
+  backface-visibility:hidden;
+  display:flex; flex-direction:column;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  background:#fff;
+}
+.flip-front{ }
+.flip-front img, .flip-front .icon-wrap{
+  width:100%; height:118px; object-fit:cover;
+  background:var(--sky-pale);
+}
+.flip-front .icon-wrap{
+  display:flex; align-items:center; justify-content:center; font-size:2.6rem;
+}
+.flip-front .word{
+  font-family:'Caveat',cursive; font-weight:700; font-size:1.35rem;
+  padding:6px 10px 8px; text-align:center; color:var(--ink);
+}
+.flip-back{
+  transform:rotateY(180deg);
+  background:var(--gold-pale);
+  padding:14px;
+  justify-content:center;
+  text-align:center;
+}
+.flip-back .tr{ font-weight:800; color:var(--margin-red); margin-bottom:6px; }
+.flip-back .ex{ font-size:0.88rem; color:var(--ink-soft); font-style:italic; }
+.flip-card.learned .flip-face{ border-color:var(--leaf); }
+.flip-card.learned .flip-front::after{
+  content:"✓"; position:absolute; top:6px; right:8px;
+  color:var(--leaf); font-weight:900; font-size:1.1rem;
+}
+
+/* Малі "намальовані" іконки для хатніх дій -------------------- */
+.doodle{ font-size:2.6rem; line-height:1; }
+
+/* Вправи ------------------------------------------------------ */
+.exercise{
+  background:#fff;
+  border:2px solid rgba(43,42,40,0.12);
+  border-radius:var(--radius);
+  padding:20px 22px;
+  margin:18px 0;
+  max-width:var(--max-w);
+  box-shadow:var(--shadow);
+}
+.exercise .q{ font-weight:700; margin-bottom:12px; }
+.choices{ display:flex; flex-wrap:wrap; gap:10px; }
+.choice-btn{
+  font-family:'Nunito',sans-serif;
+  font-weight:700;
+  font-size:0.95rem;
+  padding:9px 16px;
+  border-radius:10px;
+  border:2px solid var(--sky);
+  background:#fff;
+  color:var(--sky);
+  cursor:pointer;
+}
+.choice-btn:hover{ background:var(--sky-pale); }
+.choice-btn.correct{ background:var(--leaf-pale); border-color:var(--leaf); color:var(--leaf); }
+.choice-btn.wrong{ background:var(--coral-pale); border-color:var(--coral); color:var(--coral); }
+.choice-btn[disabled]{ cursor:default; }
+
+.feedback{
+  margin-top:12px; font-weight:800; min-height:1.4em;
+}
+.feedback.ok{ color:var(--leaf); }
+.feedback.no{ color:var(--coral); }
+
+/* Конструктор речення (клікни слова по порядку) --------------- */
+.order-pool{ display:flex; flex-wrap:wrap; gap:8px; margin:12px 0; }
+.order-word{
+  font-family:'Nunito',sans-serif; font-weight:800;
+  padding:9px 14px; border-radius:10px;
+  background:var(--sky-pale); color:var(--sky);
+  border:2px solid var(--sky);
+  cursor:pointer; user-select:none;
+}
+.order-word[disabled]{ opacity:.35; cursor:default; }
+.order-answer{
+  min-height:52px;
+  border:2px dashed var(--gold);
+  border-radius:10px;
+  padding:10px 12px;
+  display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+  background:var(--gold-pale);
+  margin-bottom:12px;
+}
+.order-answer .order-word{ background:#fff; }
+
+/* Прогрес / зірочки -------------------------------------------- */
+.progress-bar{
+  position:sticky; top:0; z-index:30;
+  display:flex; align-items:center; gap:12px;
+  padding:10px 32px 10px 40px;
+  background:var(--ink);
+  color:#fff;
+  font-weight:800;
+  font-size:0.95rem;
+}
+.progress-bar .stars{ color:var(--gold); font-size:1.1rem; letter-spacing:1px; }
+.progress-track{
+  flex:1; height:8px; background:rgba(255,255,255,0.2); border-radius:6px; overflow:hidden;
+}
+.progress-fill{
+  height:100%; width:0%; background:var(--gold);
+  transition:width .4s ease;
+}
+.back-link{ color:#fff !important; opacity:.8; font-size:0.85rem; }
+
+/* Спалах зірки при правильній відповіді -------------------------*/
+@keyframes pop-burst{
+  0%{ transform:scale(0.3) rotate(0deg); opacity:0; }
+  40%{ transform:scale(1.25) rotate(8deg); opacity:1; }
+  100%{ transform:scale(1) rotate(0deg); opacity:0; }
+}
+.burst{
+  position:fixed; pointer-events:none; z-index:999;
+  font-size:2rem; animation:pop-burst .7s ease forwards;
+}
+
+/* Checklist ДЗ --------------------------------------------------*/
+.checklist{ list-style:none; padding:0; margin:14px 0; max-width:var(--max-w); }
+.checklist li{
+  display:flex; gap:10px; align-items:flex-start;
+  padding:10px 0; border-bottom:1px solid rgba(43,42,40,0.1);
+}
+.checklist input{ margin-top:4px; width:18px; height:18px; accent-color:var(--leaf); }
+.checklist li.done label{ text-decoration:line-through; color:var(--ink-soft); }
+
+/* Ключові слова визначення --------------------------------------*/
+.keywords{
+  display:flex; flex-wrap:wrap; gap:12px; margin:16px 0;
+}
+.keyword-pill{
+  font-family:'Caveat',cursive; font-weight:700; font-size:1.4rem;
+  padding:8px 20px; border-radius:100px;
+  background:var(--coral-pale); color:var(--margin-red);
+  border:2px solid var(--margin-red);
+}
+
+/* Мінітекст -------------------------------------------------------*/
+.storybox{
+  background:var(--sky-pale);
+  border-left:5px solid var(--sky);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:18px 22px;
+  max-width:var(--max-w);
+  font-size:1.08rem;
+}
+.storybox p{ margin:0 0 10px; }
+.storybox .clickable-word{
+  cursor:pointer; border-bottom:2px dotted var(--sky);
+}
+.storybox .clickable-word.marked{
+  background:var(--gold-pale); border-bottom-color:var(--gold);
+}
+
+footer.page-footer{
+  padding:30px 32px 40px 40px;
+  color:var(--ink-soft);
+  font-size:0.9rem;
+}
