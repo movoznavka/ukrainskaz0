@@ -18,6 +18,17 @@
   .word-list-mini li{ margin-bottom:4px; }
   .summary-grid{ display:flex; gap:16px; flex-wrap:wrap; }
   .summary-card{ flex:1 1 200px; background:#fff; border:1px solid var(--paper-line); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow-sm); }
+  .growth-line{
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    background:#fff; border:2px dashed var(--paper-line); border-radius:var(--radius);
+    padding:16px 18px; margin:16px 0; max-width:var(--max-w);
+  }
+  .growth-line .step{ font-weight:800; font-family:'Nunito',sans-serif; }
+  .growth-line .step.w1{ color:var(--ink-soft); }
+  .growth-line .step.w2{ color:var(--sky); }
+  .growth-line .step.w3{ color:var(--leaf); }
+  .growth-line .arrow{ color:var(--ink-soft); }
+  .mini-head{ margin:26px 0 4px; }
 </style>
 </head>
 <body>
@@ -44,7 +55,7 @@
     <span class="tag">Урок 1 · Моє повсякденне життя</span>
     <h1>Мій звичайний день</h1>
     <div class="goal-box">
-      <strong>Мета уроку:</strong> вивчити 10 нових слів про твій день — трохи складніших, ніж ти звик(ла), — побудувати перше правильне речення і навчитися впізнавати слово, словосполучення та речення.
+      <strong>Мета уроку:</strong> вивчити 10 слів, які описують твій справжній день — від пробудження до сну, побудувати перше правильне речення і навчитися впізнавати слово, словосполучення та речення.
     </div>
     <div class="meta-row">
       <span class="meta-pill">⏱ ≈ 60 хвилин</span>
@@ -59,7 +70,7 @@
       <span class="section-num">1</span>
       <h2>Нові слова</h2>
     </div>
-    <p>Натисни на картку, щоб перевернути її та побачити пояснення й приклад. Це слова, яких ти, можливо, ще не вживав(ла) — вони точніші й «дорослі» за прості «вставати» чи «їсти».</p>
+    <p>Натисни на картку, щоб перевернути її та побачити пояснення й приклад. Це прості, живі слова — те, що ти справді робиш щодня, від ранку до вечора.</p>
     <div class="card-grid" id="vocab-grid"></div>
   </section>
 
@@ -79,12 +90,67 @@
       <span class="section-num">3</span>
       <h2>Слово · словосполучення · речення</h2>
     </div>
+
     <div class="summary-grid">
-      <div class="summary-card"><h3 style="margin-top:0">Слово</h3><p style="margin:0">Називає одну річ, дію чи ознаку.<br><em>ранець, підкріплятися, стомлений</em></p></div>
-      <div class="summary-card"><h3 style="margin-top:0">Словосполучення</h3><p style="margin:0">Два чи більше слів, пов'язаних за змістом.<br><em>мій розклад, виконувати завдання</em></p></div>
-      <div class="summary-card"><h3 style="margin-top:0">Речення</h3><p style="margin:0">Виражає закінчену думку. Починається з великої літери.<br><em>Я виконую домашнє завдання.</em></p></div>
+      <div class="summary-card">
+        <h3 style="margin-top:0">Слово</h3>
+        <p style="margin:0">Одне-єдине слово. Просто називає річ, дію чи ознаку — і все.<br><strong>школа</strong></p>
+      </div>
+      <div class="summary-card">
+        <h3 style="margin-top:0">Словосполучення</h3>
+        <p style="margin:0">Два (чи більше) слова разом. Вони пов'язані за змістом, але думка ще не завершена.<br><strong>моя школа</strong></p>
+      </div>
+      <div class="summary-card">
+        <h3 style="margin-top:0">Речення</h3>
+        <p style="margin:0">Завершена думка. Завжди з великої літери, завжди з крапкою (чи ! або ?) у кінці.<br><strong>Я йду до школи.</strong></p>
+      </div>
     </div>
-    <p style="margin-top:18px"><strong>Порядок слів у реченні.</strong> У звичайному українському реченні спочатку йде той, ХТО діє (підмет), потім те, ЩО він робить (присудок), а далі — інші слова:</p>
+
+    <p style="margin-top:18px">Дивись, як одне й те саме слово «росте» — від слова до цілої думки:</p>
+    <div class="growth-line">
+      <span class="step w1">школа</span>
+      <span class="arrow">→</span>
+      <span class="step w2">моя школа</span>
+      <span class="arrow">→</span>
+      <span class="step w3">Я йду до школи.</span>
+    </div>
+
+    <h3 class="mini-head">Перевір себе: слово, словосполучення чи речення?</h3>
+    <p>Прочитай приклад і обери правильну відповідь.</p>
+
+    <div class="exercise" id="wsr1">
+      <div class="q">«школа»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="wsr2">
+      <div class="q">«моя школа»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="wsr3">
+      <div class="q">«Я йду до школи.»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="wsr4">
+      <div class="q">«читати книжку»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="wsr5">
+      <div class="q">«портфель»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="wsr6">
+      <div class="q">«Дівчинка йде на урок.»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <h3 class="mini-head">Порядок слів у реченні</h3>
+    <p>У звичайному українському реченні спочатку йде той, ХТО діє (підмет), потім те, ЩО він робить (присудок), а далі — інші слова:</p>
     <p class="hand" style="font-size:1.4rem;color:var(--sky)">Хто? → що робить? → що / куди / коли?</p>
     <p><em>Дівчинка читає книжку.</em> &nbsp;·&nbsp; <em>Я йду до школи.</em></p>
 
@@ -123,7 +189,7 @@
     </div>
 
     <div class="exercise" id="p3">
-      <div class="q">3️⃣ Устав правильне слово: «Я ___ обличчя й руки водою щоранку.»</div>
+      <div class="q">3️⃣ Устав правильне слово: «Я ___ зуби щоранку.»</div>
       <div class="choices"></div>
       <div class="feedback"></div>
     </div>
@@ -134,8 +200,20 @@
       <div class="feedback"></div>
     </div>
 
+    <div class="exercise" id="p5">
+      <div class="q">5️⃣ Устав правильне слово: «Я ___ портфель і йду до школи.»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise" id="p6">
+      <div class="q">6️⃣ Що з переліченого є РЕЧЕННЯМ?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
     <div class="exercise">
-      <div class="q">5️⃣ Збери ще одне речення — про розклад уроків:</div>
+      <div class="q">7️⃣ Збери ще одне речення — про школу:</div>
       <div class="order-pool"></div>
       <div class="order-answer"></div>
       <div class="feedback"></div>
@@ -158,7 +236,12 @@
       <div class="feedback"></div>
     </div>
     <div class="exercise" id="t2">
-      <div class="q">Куди Оленка йде з ранцем?</div>
+      <div class="q">Куди Оленка йде з портфелем?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="t3">
+      <div class="q">Що Оленка робить перед сном?</div>
       <div class="choices"></div>
       <div class="feedback"></div>
     </div>
@@ -179,7 +262,7 @@
     <p>Коротко, без перевантаження — три маленькі кроки:</p>
     <ul class="checklist" id="hw-list">
       <li><input type="checkbox" id="hw1"><label for="hw1">Вивчити напам'ять 5 слів для запам'ятовування (нижче).</label></li>
-      <li><input type="checkbox" id="hw2"><label for="hw2">Скласти усно 3 речення зі словами «ранець», «розклад», «підкріплюватися».</label></li>
+      <li><input type="checkbox" id="hw2"><label for="hw2">Скласти усно 3 речення зі словами «школа», «портфель», «гуляти».</label></li>
       <li><input type="checkbox" id="hw3"><label for="hw3">Розповісти дорослим свій розпорядок дня, використавши хоча б 3 нових слова.</label></li>
     </ul>
   </section>
@@ -191,13 +274,13 @@
       <h2>Слова для запам'ятовування</h2>
     </div>
     <div class="keywords">
-      <span class="keyword-pill">ранець</span>
-      <span class="keyword-pill">розклад</span>
-      <span class="keyword-pill">підкріплюватися</span>
-      <span class="keyword-pill">виконувати</span>
-      <span class="keyword-pill">стомлюватися</span>
+      <span class="keyword-pill">школа</span>
+      <span class="keyword-pill">портфель</span>
+      <span class="keyword-pill">урок</span>
+      <span class="keyword-pill">гуляти</span>
+      <span class="keyword-pill">снідати</span>
     </div>
-    <p style="margin-top:20px">Сьогодні ти навчився(-лася) розрізняти слово, словосполучення й речення, правильно будувати порядок слів — і вивчив(ла) кілька нових, точніших слів про свій день. Наступного уроку — <strong>«Моя сім'я»</strong> та іменники «хто? що?».</p>
+    <p style="margin-top:20px">Сьогодні ти навчився(-лася) розрізняти слово, словосполучення й речення та правильно будувати порядок слів. Наступного уроку — <strong>«Моя сім'я»</strong> та іменники «хто? що?».</p>
     <p><a class="btn ghost" href="../index.html">← Повернутись до зошита</a></p>
   </section>
 
@@ -207,19 +290,18 @@
 <script src="../assets/lesson-kit.js"></script>
 <script>
   // ---- дані уроку ------------------------------------------------
-  // Нові слова — трохи складніші синоніми й точніші слова замість
-  // елементарних «вставати», «їсти», «сумка» тощо.
+  // Прості, справжні слова про реальний день дитини.
   const vocab = [
-    { icon:"🌅", word:"пробуджуватися", translation:"прокидатися, переставати спати", example:"Щоранку я пробуджуюся від співу пташок за вікном." },
-    { icon:"🧼", word:"вмиватися", translation:"мити обличчя й руки водою, доглядати за собою", example:"Прокинувшись, я вмиваюся і чищу зуби." },
-    { icon:"🥣", word:"підкріплюватися", translation:"їсти, щоб отримати сили на день", example:"Перед школою вся родина підкріплюється кашею." },
-    { icon:"👕", word:"вбиратися", translation:"одягатися, вдягати на себе одяг", example:"Я швидко вбираюся у шкільну форму." },
-    { icon:"🎒", word:"ранець", translation:"сумка для книжок і зошитів, яку носять до школи", example:"У моєму ранці лежать підручники та пенал." },
-    { icon:"🗓️", word:"розклад", translation:"список уроків за днями тижня", example:"У понеділок за розкладом п'ять уроків." },
-    { icon:"🛝", word:"перерва", translation:"короткий відпочинок між уроками", example:"На перерві діти виходять у двір погратися." },
-    { icon:"📝", word:"виконувати", translation:"робити щось старанно, до самого кінця", example:"Увечері я виконую домашнє завдання з математики." },
-    { icon:"😴", word:"стомлюватися", translation:"відчувати втому після роботи чи навчання", example:"Після довгого дня я трохи стомлююся." },
-    { icon:"🌙", word:"вкладатися спати", translation:"лягати в ліжко, щоб заснути", example:"Я вкладаюся спати о дев'ятій годині." }
+    { icon:"🌅", word:"прокидатися", translation:"переставати спати, розплющувати очі вранці", example:"Я прокидаюся о сьомій годині." },
+    { icon:"🪥", word:"чистити зуби", translation:"мити зуби щіткою, щоб вони були здорові", example:"Дитина чистить зуби зранку і ввечері." },
+    { icon:"🥣", word:"снідати", translation:"їсти вранці, перший раз за день", example:"Родина снідає разом на кухні." },
+    { icon:"👕", word:"одягатися", translation:"надягати на себе одяг", example:"Хлопчик швидко одягається до школи." },
+    { icon:"🎒", word:"портфель", translation:"сумка, у якій носять зошити й книжки до школи", example:"У моєму портфелі лежать зошит і пенал." },
+    { icon:"🏫", word:"школа", translation:"місце, де діти навчаються", example:"Щоранку я йду до школи з друзями." },
+    { icon:"📚", word:"урок", translation:"час, коли вчитель навчає учнів у класі", example:"Перший урок сьогодні — українська мова." },
+    { icon:"🏃", word:"гуляти", translation:"бути надворі, бавитися на свіжому повітрі", example:"Після уроків діти гуляють у дворі." },
+    { icon:"📝", word:"домашнє завдання", translation:"вправи, які задав учитель на дім", example:"Увечері я роблю домашнє завдання за столом." },
+    { icon:"🌙", word:"лягати спати", translation:"йти в ліжко, щоб заснути", example:"Малий лягає спати о дев'ятій годині." }
   ];
 
   const review = [
@@ -233,41 +315,65 @@
   LessonKit.initFlashcards('#vocab-grid', vocab);
   LessonKit.initFlashcards('#review-grid', review);
   LessonKit.initTabs();
-  LessonKit.setTotalStars(8);
+  LessonKit.setTotalStars(19);
+
+  // ---- слово / словосполучення / речення --------------------------
+  LessonKit.initChoice(document.getElementById('wsr1'),
+    [{text:"слово", correct:true},{text:"словосполучення", correct:false},{text:"речення", correct:false}]);
+  LessonKit.initChoice(document.getElementById('wsr2'),
+    [{text:"слово", correct:false},{text:"словосполучення", correct:true},{text:"речення", correct:false}]);
+  LessonKit.initChoice(document.getElementById('wsr3'),
+    [{text:"слово", correct:false},{text:"словосполучення", correct:false},{text:"речення", correct:true}]);
+  LessonKit.initChoice(document.getElementById('wsr4'),
+    [{text:"слово", correct:false},{text:"словосполучення", correct:true},{text:"речення", correct:false}]);
+  LessonKit.initChoice(document.getElementById('wsr5'),
+    [{text:"слово", correct:true},{text:"словосполучення", correct:false},{text:"речення", correct:false}]);
+  LessonKit.initChoice(document.getElementById('wsr6'),
+    [{text:"слово", correct:false},{text:"словосполучення", correct:false},{text:"речення", correct:true}]);
 
   // ---- граматика: конструктори речень ----------------------------
-  const grammarBoxes = document.querySelectorAll('#sec-grammar .exercise');
+  const grammarBoxes = document.querySelectorAll('#sec-grammar .exercise:not(#wsr1):not(#wsr2):not(#wsr3):not(#wsr4):not(#wsr5):not(#wsr6)');
   LessonKit.initOrderBuilder(grammarBoxes[0], ["Дівчинка","читає","книжку"]);
   LessonKit.initOrderBuilder(grammarBoxes[1], ["Після","уроків","діти","гуляють","у","дворі"]);
 
   // ---- практика: вибір відповіді -----------------------------------
   LessonKit.initChoice(document.getElementById('p1'), [
     {text:"олівець", correct:false},
-    {text:"ранець", correct:true},
+    {text:"портфель", correct:true},
     {text:"зошит", correct:false}
   ]);
   LessonKit.initChoice(document.getElementById('p2'), [
-    {text:"підкріплюватися", correct:false},
-    {text:"вбиратися", correct:true},
-    {text:"стомлюватися", correct:false}
+    {text:"снідати", correct:false},
+    {text:"одягатися", correct:true},
+    {text:"гуляти", correct:false}
   ]);
   LessonKit.initChoice(document.getElementById('p3'), [
-    {text:"вмиваюся", correct:true},
+    {text:"чищу", correct:true},
     {text:"читаю", correct:false},
     {text:"гуляю", correct:false}
   ]);
   LessonKit.initChoice(document.getElementById('p4'), [
-    {text:"розклад", correct:false},
-    {text:"мій розклад", correct:true},
-    {text:"У мене є розклад.", correct:false}
-  ], "✓ Так! «мій розклад» — два слова, пов'язані за змістом, без закінченої думки.", "✗ Подумай: тут має бути рівно два слова без крапки в кінці.");
+    {text:"школа", correct:false},
+    {text:"моя школа", correct:true},
+    {text:"Я йду до школи.", correct:false}
+  ], "✓ Так! «моя школа» — два слова, пов'язані за змістом, без закінченої думки.", "✗ Подумай: тут має бути рівно два слова без крапки в кінці.");
+  LessonKit.initChoice(document.getElementById('p5'), [
+    {text:"беру", correct:true},
+    {text:"сплю", correct:false},
+    {text:"малюю", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('p6'), [
+    {text:"прокидатися", correct:false},
+    {text:"вранці прокидатися", correct:false},
+    {text:"Я прокидаюся о сьомій.", correct:true}
+  ]);
 
-  const p5box = document.querySelectorAll('#sec-practice .exercise')[4];
-  LessonKit.initOrderBuilder(p5box, ["Сьогодні","за","розкладом","п'ять","уроків"]);
+  const p7box = document.getElementById('sec-practice').querySelector('.exercise:last-child');
+  LessonKit.initOrderBuilder(p7box, ["Перший","урок","сьогодні","українська","мова"]);
 
   // ---- мінітекст ------------------------------------------------
-  const storyWords = "Вранці Оленка пробуджується рано . Вона вмивається і охайно вбирається до школи . Родина підкріплюється кашею на кухні . Потім Оленка бере ранець і йде до школи . Сьогодні за розкладом п'ять уроків . На перерві діти гуляють у дворі . Увечері Оленка виконує домашнє завдання і трохи стомлюється . Коли настає ніч , вона вкладається спати .".split(" ");
-  const verbTokens = ["пробуджується","вмивається","вбирається","підкріплюється","бере","йде","гуляють","виконує","стомлюється","вкладається"];
+  const storyWords = "Вранці Оленка прокидається рано . Вона чистить зуби і швидко одягається . Родина снідає разом на кухні . Потім Оленка бере портфель і йде до школи . Перший урок — українська мова . Після уроків діти гуляють у дворі . Увечері Оленка робить домашнє завдання за столом . Коли настає ніч , вона лягає спати .".split(" ");
+  const verbTokens = ["прокидається","чистить","одягається","снідає","бере","йде","гуляють","робить","настає","лягає"];
   const storyEl = document.getElementById('story');
   let html = "<p>";
   storyWords.forEach(tok => {
@@ -285,14 +391,19 @@
   LessonKit.initStoryHighlight('#story');
 
   LessonKit.initChoice(document.getElementById('t1'), [
-    {text:"Виконує домашнє завдання", correct:false},
-    {text:"Пробуджується", correct:true},
-    {text:"Йде на перерву", correct:false}
+    {text:"Сніданок", correct:false},
+    {text:"Прокидається", correct:true},
+    {text:"Урок", correct:false}
   ]);
   LessonKit.initChoice(document.getElementById('t2'), [
     {text:"До школи", correct:true},
     {text:"У двір", correct:false},
     {text:"До ліжка", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('t3'), [
+    {text:"Гуляє у дворі", correct:false},
+    {text:"Робить домашнє завдання", correct:false},
+    {text:"Лягає спати", correct:true}
   ]);
 
   document.getElementById('check-verbs').addEventListener('click', (e) => {
