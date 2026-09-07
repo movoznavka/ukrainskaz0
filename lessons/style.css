@@ -217,28 +217,61 @@ a:hover{ text-decoration:underline; }
 
 /* Анімована мінісценка «доба» під заголовком уроку -------------------- */
 .day-cycle{
-  width:100%; max-width:640px; height:auto; display:block; margin:18px 0 4px;
+  width:100%; max-width:520px; display:block; margin:18px 0 4px;
   border-radius:var(--radius);
   overflow:hidden;
 }
-.day-cycle .sun-moon{
-  animation:day-arc 9s ease-in-out infinite;
-  transform-origin:170px 190px;
-}
 .day-cycle .cloud{ animation:drift 12s ease-in-out infinite; }
 .day-cycle .cloud2{ animation:drift 14s ease-in-out infinite reverse; }
-@keyframes day-arc{
-  0%{ transform:rotate(-70deg); }
-  50%{ transform:rotate(70deg); }
-  100%{ transform:rotate(-70deg); }
+.day-cycle .sun-char{
+  animation:sun-cycle 10s ease-in-out infinite;
+  transform-box:fill-box; transform-origin:50% 100%;
+}
+.day-cycle .sun-char .arm{ animation:wave 10s ease-in-out infinite; transform-box:fill-box; transform-origin:50% 0%; }
+.day-cycle .moon-char{ animation:moon-cycle 10s ease-in-out infinite; }
+.day-cycle .stars{ animation:moon-cycle 10s ease-in-out infinite; }
+.day-cycle .zzz{ animation:zzz-float 10s ease-in-out infinite; }
+@keyframes sun-cycle{
+  0%,12%{ opacity:0; transform:translateY(24px); }
+  28%{ opacity:1; transform:translateY(0); }
+  50%{ opacity:1; transform:translateY(-6px); }
+  72%{ opacity:1; transform:translateY(0); }
+  88%,100%{ opacity:0; transform:translateY(24px); }
+}
+@keyframes wave{
+  0%,38%,62%,100%{ transform:rotate(0deg); }
+  45%{ transform:rotate(-18deg); }
+  55%{ transform:rotate(18deg); }
+}
+@keyframes moon-cycle{
+  0%,8%{ opacity:1; }
+  22%,78%{ opacity:0; }
+  94%,100%{ opacity:1; }
+}
+@keyframes zzz-float{
+  0%,8%{ opacity:1; transform:translateY(0); }
+  20%{ opacity:0; transform:translateY(-6px); }
+  80%{ opacity:0; }
+  94%,100%{ opacity:1; transform:translateY(0); }
 }
 @keyframes drift{
   0%,100%{ transform:translateX(0); }
   50%{ transform:translateX(14px); }
 }
 @media (prefers-reduced-motion: reduce){
-  .day-cycle .sun-moon, .day-cycle .cloud, .day-cycle .cloud2{ animation:none; }
+  .day-cycle *{ animation:none !important; }
+  .day-cycle .sun-char{ opacity:1; }
+  .day-cycle .moon-char, .day-cycle .stars, .day-cycle .zzz{ opacity:0; }
 }
+
+/* Групи слів за часом доби (Ранок / Школа / День / Вечір / Перед сном) */
+.vocab-group{ margin:26px 0 8px; }
+.vocab-group-head{
+  display:flex; align-items:center; gap:10px;
+  font-family:'Comfortaa',sans-serif; font-weight:700; font-size:1.1rem;
+  color:var(--ink); margin-bottom:4px;
+}
+.vocab-group-head .dot{ width:10px; height:10px; border-radius:50%; background:var(--sky); flex-shrink:0; }
 .flip-front .word{
   font-family:'Nunito',sans-serif; font-weight:800; font-size:0.98rem;
   padding:8px 10px; text-align:center; color:var(--ink);
