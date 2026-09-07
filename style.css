@@ -212,6 +212,33 @@ a:hover{ text-decoration:underline; }
 .flip-front .icon-wrap{
   display:flex; align-items:center; justify-content:center; font-size:2.5rem;
 }
+.flip-front .icon-wrap.svg-wrap{ padding:0; }
+.flip-front .icon-wrap.svg-wrap svg{ width:100%; height:100%; display:block; }
+
+/* Анімована мінісценка «доба» під заголовком уроку -------------------- */
+.day-cycle{
+  width:100%; max-width:640px; height:auto; display:block; margin:18px 0 4px;
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+.day-cycle .sun-moon{
+  animation:day-arc 9s ease-in-out infinite;
+  transform-origin:170px 190px;
+}
+.day-cycle .cloud{ animation:drift 12s ease-in-out infinite; }
+.day-cycle .cloud2{ animation:drift 14s ease-in-out infinite reverse; }
+@keyframes day-arc{
+  0%{ transform:rotate(-70deg); }
+  50%{ transform:rotate(70deg); }
+  100%{ transform:rotate(-70deg); }
+}
+@keyframes drift{
+  0%,100%{ transform:translateX(0); }
+  50%{ transform:translateX(14px); }
+}
+@media (prefers-reduced-motion: reduce){
+  .day-cycle .sun-moon, .day-cycle .cloud, .day-cycle .cloud2{ animation:none; }
+}
 .flip-front .word{
   font-family:'Nunito',sans-serif; font-weight:800; font-size:0.98rem;
   padding:8px 10px; text-align:center; color:var(--ink);
