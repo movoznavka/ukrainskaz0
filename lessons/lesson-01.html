@@ -40,7 +40,6 @@
 
 <div class="tabs">
   <div class="tab active" data-target="#sec-words">Слова</div>
-  <div class="tab" data-target="#sec-review">Повторення</div>
   <div class="tab" data-target="#sec-grammar">Граматика</div>
   <div class="tab" data-target="#sec-practice">Практика</div>
   <div class="tab" data-target="#sec-connectors">Зв'язки</div>
@@ -122,45 +121,35 @@
     <p>Натисни на картку, щоб перевернути її та побачити пояснення й приклад. Слова йдуть у тому порядку, як і дії протягом дня — від ранку до сну.</p>
 
     <div class="vocab-group">
-      <div class="vocab-group-head"><span class="dot" style="background:var(--gold)"></span>🌅 Ранок</div>
+      <div class="vocab-group-head" style="border-left-color:var(--gold)">🌅 Ранок</div>
       <div class="card-grid" id="vocab-morning"></div>
     </div>
 
     <div class="vocab-group">
-      <div class="vocab-group-head"><span class="dot" style="background:var(--sky)"></span>📚 Школа</div>
+      <div class="vocab-group-head" style="border-left-color:var(--sky)">📚 Школа</div>
       <div class="card-grid" id="vocab-school"></div>
     </div>
 
     <div class="vocab-group">
-      <div class="vocab-group-head"><span class="dot" style="background:var(--leaf)"></span>🍲 День</div>
+      <div class="vocab-group-head" style="border-left-color:var(--leaf)">🍲 День</div>
       <div class="card-grid" id="vocab-day"></div>
     </div>
 
     <div class="vocab-group">
-      <div class="vocab-group-head"><span class="dot" style="background:var(--coral)"></span>🌆 Вечір</div>
+      <div class="vocab-group-head" style="border-left-color:var(--coral)">🌆 Вечір</div>
       <div class="card-grid" id="vocab-evening"></div>
     </div>
 
     <div class="vocab-group">
-      <div class="vocab-group-head"><span class="dot" style="background:var(--ink)"></span>🌙 Перед сном</div>
+      <div class="vocab-group-head" style="border-left-color:var(--ink)">🌙 Перед сном</div>
       <div class="card-grid" id="vocab-night"></div>
     </div>
-  </section>
-
-  <!-- ================= ПОВТОРЕННЯ ================= -->
-  <section id="sec-review" class="section page">
-    <div class="section-head">
-      <span class="section-num">2</span>
-      <h2>Слова, які ти вже знаєш</h2>
-    </div>
-    <p>Це прості слова для розминки — перевір, чи пам'ятаєш ти їх усі.</p>
-    <div class="card-grid" id="review-grid"></div>
   </section>
 
   <!-- ================= ГРАМАТИКА ================= -->
   <section id="sec-grammar" class="section page">
     <div class="section-head">
-      <span class="section-num">3</span>
+      <span class="section-num">2</span>
       <h2>Слово · словосполучення · речення</h2>
     </div>
 
@@ -244,7 +233,7 @@
   <!-- ================= ПРАКТИКА ================= -->
   <section id="sec-practice" class="section page">
     <div class="section-head">
-      <span class="section-num">4</span>
+      <span class="section-num">3</span>
       <h2>Практика</h2>
     </div>
     <p>Завдання йдуть від простих до складніших — не поспішай.</p>
@@ -308,7 +297,7 @@
   <!-- ================= СЛОВА-ЗВ'ЯЗКИ ================= -->
   <section id="sec-connectors" class="section page">
     <div class="section-head">
-      <span class="section-num">5</span>
+      <span class="section-num">4</span>
       <h2>Слова-зв'язки</h2>
     </div>
     <div class="connector-note">
@@ -361,7 +350,7 @@
   <!-- ================= МІНІТЕКСТ + РОБОТА З ТЕКСТОМ ================= -->
   <section id="sec-text" class="section page">
     <div class="section-head">
-      <span class="section-num">6</span>
+      <span class="section-num">5</span>
       <h2>День Оленки</h2>
     </div>
     <p>Прочитай текст. У ньому — багато слів, які ти сьогодні вивчив.</p>
@@ -394,7 +383,7 @@
   <!-- ================= ДОМАШНЄ ЗАВДАННЯ ================= -->
   <section id="sec-homework" class="section page">
     <div class="section-head">
-      <span class="section-num">7</span>
+      <span class="section-num">6</span>
       <h2>Домашнє завдання</h2>
     </div>
     <p>Коротко, без перевантаження — три маленькі кроки:</p>
@@ -408,7 +397,7 @@
   <!-- ================= ПІДСУМОК ================= -->
   <section id="sec-summary" class="section page">
     <div class="section-head">
-      <span class="section-num">8</span>
+      <span class="section-num">7</span>
       <h2>Слова для запам'ятовування</h2>
     </div>
     <div class="keywords">
@@ -512,19 +501,6 @@
       svg:`<svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="140" fill="#2B3A34"/><path d="M84 62q16 12 32 0" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/><text x="120" y="44" font-family="Comfortaa, sans-serif" font-size="18" fill="#fff" font-weight="700">Z</text><text x="132" y="32" font-family="Comfortaa, sans-serif" font-size="12" fill="#fff" font-weight="700">z</text></svg>` }
   ];
 
-  const review = [
-    { word:"дім", translation:"місце, де живе родина", example:"Наш дім стоїть біля парку.",
-      svg:`<svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="140" fill="var(--sky-pale)"/><path d="M45 70l55-34 55 34z" fill="var(--gold)" stroke="var(--ink)" stroke-width="4"/><rect x="58" y="70" width="84" height="44" fill="#fff" stroke="var(--ink)" stroke-width="4"/><rect x="92" y="86" width="16" height="28" fill="var(--sky)" stroke="var(--ink)" stroke-width="3"/></svg>` },
-    { word:"сім'я", translation:"мама, тато, діти та інші рідні", example:"Моя сім'я велика і дружна.",
-      svg:`<svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="140" fill="var(--leaf-pale)"/><circle cx="75" cy="55" r="18" fill="var(--sky)"/><circle cx="125" cy="55" r="18" fill="var(--coral)"/><circle cx="100" cy="90" r="13" fill="var(--gold)"/><rect x="55" y="73" width="40" height="30" rx="10" fill="var(--sky)"/><rect x="105" y="73" width="40" height="30" rx="10" fill="var(--coral)"/></svg>` },
-    { word:"друг", translation:"людина, з якою тобі приємно і легко", example:"Мій друг живе поруч.",
-      svg:`<svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="140" fill="var(--gold-pale)"/><circle cx="80" cy="62" r="20" fill="var(--sky)"/><circle cx="122" cy="62" r="20" fill="var(--leaf)"/><rect x="60" y="82" width="40" height="28" rx="10" fill="var(--sky)"/><rect x="102" y="82" width="40" height="28" rx="10" fill="var(--leaf)"/></svg>` },
-    { word:"книга", translation:"сторінки з текстом, які читають", example:"Я читаю цікаву книгу.",
-      svg:`<svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="140" fill="var(--sky-pale)"/><rect x="60" y="40" width="80" height="60" rx="4" fill="var(--coral)" stroke="var(--ink)" stroke-width="4"/><rect x="66" y="46" width="68" height="48" fill="#fff"/><line x1="76" y1="58" x2="124" y2="58" stroke="var(--paper-line)" stroke-width="3"/><line x1="76" y1="70" x2="124" y2="70" stroke="var(--paper-line)" stroke-width="3"/><line x1="76" y1="82" x2="108" y2="82" stroke="var(--paper-line)" stroke-width="3"/></svg>` },
-    { word:"ранок", translation:"початок дня, коли сходить сонце", example:"Ранок сьогодні сонячний.",
-      svg:`<svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="140" fill="var(--leaf-pale)"/><rect y="90" width="200" height="50" fill="var(--leaf)"/><circle cx="100" cy="90" r="26" fill="var(--gold)"/><g stroke="var(--gold)" stroke-width="5" stroke-linecap="round"><line x1="100" y1="48" x2="100" y2="58"/><line x1="66" y1="60" x2="74" y2="68"/><line x1="134" y1="60" x2="126" y2="68"/></g></svg>` }
-  ];
-
   const connectors = [
     { icon:"1️⃣", word:"спочатку", translation:"перше слово, яким починаємо розповідь про день", example:"Спочатку я прокидаюся." },
     { icon:"➡️", word:"потім", translation:"наступна дія після попередньої", example:"Потім я снідаю." },
@@ -542,7 +518,6 @@
   LessonKit.initFlashcards('#vocab-day', vocabDay);
   LessonKit.initFlashcards('#vocab-evening', vocabEvening);
   LessonKit.initFlashcards('#vocab-night', vocabNight);
-  LessonKit.initFlashcards('#review-grid', review);
   LessonKit.initFlashcards('#connectors-grid', connectors);
   LessonKit.initTabs();
   LessonKit.setTotalStars(27);
