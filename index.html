@@ -52,7 +52,7 @@
       <p class="eyebrow-line">36 уроків для учня зі слабким словниковим запасом: у кожному уроці нова лексика і граматика йдуть разом, крок за кроком, від простого до складнішого.</p>
       <div class="stat-row">
         <div class="stat"><b>36</b><span>занять на рік</span></div>
-        <div class="stat"><b>1</b><span>урок готовий і чекає</span></div>
+        <div class="stat"><b>2</b><span>уроки готові й чекають</span></div>
         <div class="stat"><b>~60хв</b><span>на кожен урок</span></div>
       </div>
       <p><a class="btn" href="lessons/lesson-01.html">Відкрити урок 1 →</a></p>
@@ -93,7 +93,7 @@
 <script>
   const lessons = [
     ["Моє повсякденне життя","Слово, словосполучення, речення. Порядок слів у реченні"],
-    ["Моя сім'я","Іменник: хто? що?"],
+    ["Їжа","Види речення: розповідне, питальне, спонукальне"],
     ["Зовнішність людини","Прикметник: який? яка? яке? які?"],
     ["Характер людини","Іменник + прикметник"],
     ["Моя школа","Рід іменників"],
@@ -133,7 +133,7 @@
   const body = document.getElementById('toc-body');
   lessons.forEach((l, i) => {
     const n = i + 1;
-    const ready = n === 1;
+    const ready = n <= 2;
     const row = document.createElement('div');
     row.className = 'toc-row ' + (ready ? 'ready' : 'locked');
     row.innerHTML = `
