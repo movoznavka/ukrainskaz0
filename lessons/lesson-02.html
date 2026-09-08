@@ -287,6 +287,37 @@
       <div class="choices"></div>
       <div class="feedback"></div>
     </div>
+
+    <h3 class="mini-head">Ще трохи практики — тепер усі три типи разом</h3>
+    <div class="exercise" id="g8">
+      <div class="q">«Смачного!»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="g9">
+      <div class="q">«Чи любиш ти вареники?»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="g10">
+      <div class="q">«Наріж моркву дрібними шматочками.»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <h3 class="mini-head">Побудуй речення сам(-а)</h3>
+    <div class="exercise" id="g-order-1">
+      <div class="q">🧩 Збери питальне речення (не забудь знак питання в кінці!):</div>
+      <div class="order-pool"></div>
+      <div class="order-answer"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="g-order-2">
+      <div class="q">🧩 А тепер спонукальне речення:</div>
+      <div class="order-pool"></div>
+      <div class="order-answer"></div>
+      <div class="feedback"></div>
+    </div>
   </section>
 
   <!-- ================= ПРАКТИКА ================= -->
@@ -320,8 +351,33 @@
       <div class="feedback"></div>
     </div>
 
-    <div class="exercise">
+    <div class="exercise" id="p5-order">
       <div class="q">5️⃣ Збери речення:</div>
+      <div class="order-pool"></div>
+      <div class="order-answer"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise" id="p6">
+      <div class="q">6️⃣ Чим ми п'ємо чай?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise" id="p7">
+      <div class="q">7️⃣ Устав правильне слово: «Мама ___ вечерю на плиті.»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise" id="p8">
+      <div class="q">8️⃣ На чому смажать картоплю?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise" id="p9-order">
+      <div class="q">9️⃣ Збери ще одне речення:</div>
       <div class="order-pool"></div>
       <div class="order-answer"></div>
       <div class="feedback"></div>
@@ -532,7 +588,7 @@
   LessonKit.initFlashcards('#vocab-products', vocabProducts);
   LessonKit.initFlashcards('#vocab-actions', vocabActions);
   LessonKit.initTabs();
-  LessonKit.setTotalStars(correctIngredients.length + 7 + 5 + 4);
+  LessonKit.setTotalStars(correctIngredients.length + 12 + 9 + 4);
 
   // ================= ВИДИ РЕЧЕННЯ =================
   LessonKit.initChoice(document.getElementById('g1'), [
@@ -557,6 +613,20 @@
     {text:"окличне", correct:false},{text:"неокличне", correct:true}
   ]);
 
+  // -- ще практика: усі типи разом --
+  LessonKit.initChoice(document.getElementById('g8'), [
+    {text:"розповідне", correct:false},{text:"питальне", correct:false},{text:"спонукальне", correct:true}
+  ], "✓ Так! Це побажання — форма спонукального речення.");
+  LessonKit.initChoice(document.getElementById('g9'), [
+    {text:"розповідне", correct:false},{text:"питальне", correct:true},{text:"спонукальне", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('g10'), [
+    {text:"розповідне", correct:false},{text:"питальне", correct:false},{text:"спонукальне", correct:true}
+  ]);
+
+  LessonKit.initOrderBuilder(document.getElementById('g-order-1'), ["Ти","любиш","борщ"]);
+  LessonKit.initOrderBuilder(document.getElementById('g-order-2'), ["Наріж","будь","ласка","цибулю"]);
+
   // ================= ПРАКТИКА =================
   LessonKit.initChoice(document.getElementById('p1'), [
     {text:"ложкою", correct:false},{text:"ножем", correct:true},{text:"чашкою", correct:false}
@@ -570,8 +640,19 @@
   LessonKit.initChoice(document.getElementById('p4'), [
     {text:"буряк", correct:true},{text:"картопля", correct:false},{text:"цибуля", correct:false}
   ]);
-  const p5box = document.getElementById('sec-practice').querySelector('.exercise:last-child');
+  const p5box = document.getElementById('p5-order');
   LessonKit.initOrderBuilder(p5box, ["Мама","варить","смачний","борщ"]);
+
+  LessonKit.initChoice(document.getElementById('p6'), [
+    {text:"чашкою", correct:true},{text:"ножем", correct:false},{text:"сковородою", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('p7'), [
+    {text:"готує", correct:true},{text:"п'є", correct:false},{text:"спить", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('p8'), [
+    {text:"сковорода", correct:true},{text:"тарілка", correct:false},{text:"ложка", correct:false}
+  ]);
+  LessonKit.initOrderBuilder(document.getElementById('p9-order'), ["Тато","миє","посуд","ввечері"]);
 
   // ================= ТЕКСТ ПРО ВАРЕНИКИ =================
   document.getElementById('story').innerHTML = `
