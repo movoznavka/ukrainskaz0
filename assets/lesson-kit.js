@@ -68,7 +68,9 @@
     items.forEach(item => {
       const card = document.createElement('div');
       card.className = 'flip-card';
-      const media = item.img
+      const media = item.svg
+        ? `<div class="icon-wrap svg-wrap">${item.svg}</div>`
+        : item.img
         ? `<img src="${item.img}" alt="${item.word}" loading="lazy"
              onerror="this.outerHTML='<div class=&quot;icon-wrap&quot;>${item.icon || '🖼️'}</div>'">`
         : `<div class="icon-wrap">${item.icon || '🖼️'}</div>`;
