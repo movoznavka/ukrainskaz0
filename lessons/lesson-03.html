@@ -47,7 +47,7 @@
     padding:8px 14px; border-radius:100px; border:2px solid var(--paper-line);
     background:#fff; color:var(--ink); cursor:pointer;
   }
-  .pg-btn.active{ background:var(--sky); border-color:var(--sky); color:#fff; }
+  .pg-btn.active{ background:var(--gold-pale); border-color:var(--gold); color:var(--ink); }
   .portrait-sentence{
     margin-top:10px; font-weight:800; color:var(--leaf); min-height:1.4em;
   }
@@ -97,23 +97,29 @@
     <div class="portrait-game">
       <div class="portrait-face">
         <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="40" cy="128" rx="10" ry="14" fill="#F3C9A0" stroke="#E0AD7E" stroke-width="2"/>
+          <ellipse cx="160" cy="128" rx="10" ry="14" fill="#F3C9A0" stroke="#E0AD7E" stroke-width="2"/>
           <circle cx="100" cy="125" r="58" fill="#F3C9A0"/>
           <g id="hairStraight">
-            <path d="M42 110a58 58 0 0 1 116 0q0-42-22-58q-16 16-36 5q-20-15-36 0q-20 12-22 53z" fill="#8B5A2B"/>
+            <path d="M40 112 Q40 50 100 50 Q160 50 160 112 L160 92 Q160 62 100 62 Q40 62 40 92 Z" fill="#C9C9C9"/>
           </g>
           <g id="hairCurly" style="display:none">
-            <circle cx="52" cy="88" r="17" fill="#8B5A2B"/>
-            <circle cx="74" cy="68" r="18" fill="#8B5A2B"/>
-            <circle cx="100" cy="60" r="19" fill="#8B5A2B"/>
-            <circle cx="126" cy="68" r="18" fill="#8B5A2B"/>
-            <circle cx="148" cy="88" r="17" fill="#8B5A2B"/>
-            <circle cx="45" cy="108" r="14" fill="#8B5A2B"/>
-            <circle cx="155" cy="108" r="14" fill="#8B5A2B"/>
+            <circle cx="52" cy="88" r="17" fill="#C9C9C9"/>
+            <circle cx="74" cy="66" r="18" fill="#C9C9C9"/>
+            <circle cx="100" cy="58" r="19" fill="#C9C9C9"/>
+            <circle cx="126" cy="66" r="18" fill="#C9C9C9"/>
+            <circle cx="148" cy="88" r="17" fill="#C9C9C9"/>
+            <circle cx="45" cy="106" r="14" fill="#C9C9C9"/>
+            <circle cx="155" cy="106" r="14" fill="#C9C9C9"/>
           </g>
-          <circle id="eyeL" cx="80" cy="120" r="7.5" fill="#6B4226"/>
-          <circle id="eyeR" cx="120" cy="120" r="7.5" fill="#6B4226"/>
-          <path d="M60 108q6-8 14-2M126 106q8-6 14 2" stroke="#8B5A2B" stroke-width="3" fill="none" stroke-linecap="round"/>
-          <path d="M78 152q22 16 44 0" stroke="#8B5A2B" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path id="browL" d="M68 104q10-8 20-2" stroke="#C9C9C9" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path id="browR" d="M112 102q10-6 20 2" stroke="#C9C9C9" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <circle id="eyeL" cx="80" cy="120" r="7.5" fill="#B5B5B5"/>
+          <circle cx="82.5" cy="117.5" r="2" fill="#fff"/>
+          <circle id="eyeR" cx="120" cy="120" r="7.5" fill="#B5B5B5"/>
+          <circle cx="122.5" cy="117.5" r="2" fill="#fff"/>
+          <path d="M100 122q-3 10 0 14q3 2 6 0" stroke="#D69B6B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M80 150q20 14 40 0" stroke="#8B5A2B" stroke-width="4" fill="none" stroke-linecap="round"/>
         </svg>
       </div>
 
@@ -333,19 +339,29 @@
     { word:"зелені", hex:"#4C8C4A" }
   ];
 
-  let state = { hairColor:hairColors[1], hairStyle:hairStyles[0], eyeColor:eyeColors[0] };
+  let state = { hairColor:null, hairStyle:null, eyeColor:null };
 
   function renderPortrait(){
     const straightHairEls = document.querySelectorAll('#hairStraight path');
     const curlyHairEls = document.querySelectorAll('#hairCurly circle');
-    straightHairEls.forEach(el => el.setAttribute('fill', state.hairColor.hex));
-    curlyHairEls.forEach(el => el.setAttribute('fill', state.hairColor.hex));
-    document.getElementById('hairStraight').style.display = state.hairStyle.type === 'straight' ? '' : 'none';
-    document.getElementById('hairCurly').style.display = state.hairStyle.type === 'curly' ? '' : 'none';
-    document.getElementById('eyeL').setAttribute('fill', state.eyeColor.hex);
-    document.getElementById('eyeR').setAttribute('fill', state.eyeColor.hex);
-    document.getElementById('portraitSentence').textContent =
-      `У мене ${state.hairColor.word} ${state.hairStyle.word} волосся і ${state.eyeColor.word} очі.`;
+    const hairHex = state.hairColor ? state.hairColor.hex : '#C9C9C9';
+    straightHairEls.forEach(el => el.setAttribute('fill', hairHex));
+    curlyHairEls.forEach(el => el.setAttribute('fill', hairHex));
+    document.getElementById('browL').setAttribute('stroke', hairHex);
+    document.getElementById('browR').setAttribute('stroke', hairHex);
+    const styleType = state.hairStyle ? state.hairStyle.type : 'straight';
+    document.getElementById('hairStraight').style.display = styleType === 'straight' ? '' : 'none';
+    document.getElementById('hairCurly').style.display = styleType === 'curly' ? '' : 'none';
+    const eyeHex = state.eyeColor ? state.eyeColor.hex : '#B5B5B5';
+    document.getElementById('eyeL').setAttribute('fill', eyeHex);
+    document.getElementById('eyeR').setAttribute('fill', eyeHex);
+
+    const sentenceEl = document.getElementById('portraitSentence');
+    if (state.hairColor && state.hairStyle && state.eyeColor) {
+      sentenceEl.textContent = `У мене ${state.hairColor.word} ${state.hairStyle.word} волосся і ${state.eyeColor.word} очі.`;
+    } else {
+      sentenceEl.textContent = 'Обери варіанти вище, щоб побачити свій портрет 👆';
+    }
   }
 
   function buildOptions(containerSel, items, stateKey){
