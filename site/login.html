@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Вхід — Мій зошит з української</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .login-wrap{ min-height:80vh; display:flex; align-items:center; justify-content:center; }
+  .login-card{
+    background:#fff; border:2px solid var(--paper-line); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:40px 36px; max-width:460px; width:92%; text-align:center;
+  }
+  .student-grid{
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+    gap:12px; margin-top:22px;
+  }
+  .student-btn{
+    font-family:'Nunito',sans-serif; font-weight:800; font-size:1.02rem;
+    padding:18px 10px; border-radius:14px; border:2px solid var(--sky-pale);
+    background:var(--sky-pale); color:var(--leaf); cursor:pointer;
+    transition:transform .12s ease, background .15s ease;
+  }
+  .student-btn:hover{ transform:translateY(-2px); background:var(--sky); color:#fff; }
+  .login-empty{ color:var(--ink-soft); margin-top:20px; }
+</style>
+</head>
+<body>
+<div class="notebook">
+  <div class="login-wrap">
+    <div class="login-card">
+      <span class="tag">Мій зошит з української</span>
+      <h1>Хто зараз навчається?</h1>
+      <p class="eyebrow-line">Натисни своє ім'я, щоб відкрити уроки.</p>
+      <div class="student-grid" id="student-grid"></div>
+      <p class="login-empty" id="login-empty" style="display:none;">
+        Список учнів порожній. Попросіть вчителя додати імена у файлі
+        <code>assets/students.js</code>.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script src="assets/students.js"></script>
+<script>
+  const grid = document.getElementById('student-grid');
+  const names = window.PLATFORM_STUDENTS || [];
+  if (!names.length) {
+    document.getElementById('login-empty').style.display = 'block';
+  }
+  names.forEach(function (name) {
+    const btn = document.createElement('button');
+    btn.className = 'student-btn';
+    btn.textContent = name;
+    btn.addEventListener('click', function () {
+      localStorage.setItem('zoshyt_current_student', name);
+      const params = new URLSearchParams(location.search);
+      location.href = params.get('next') || 'index.html';
+    });
+    grid.appendChild(btn);
+  });
+</script>
+</body>
+</html>
