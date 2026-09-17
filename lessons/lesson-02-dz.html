@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ДЗ — Урок 2. Їжа — борщ і вареники</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<script>if(!localStorage.getItem('zoshyt_current_student')){location.href='../login.html?next='+encodeURIComponent(location.pathname);}</script>
+
+<div class="progress-bar">
+  <a class="back-link" href="lesson-02.html">← до уроку</a>
+  <div class="progress-track"><div class="progress-fill" style="width:0%"></div></div>
+  <div class="stars"></div>
+</div>
+
+<div class="notebook">
+  <div class="page">
+    <span class="tag">Домашнє завдання · Урок 2</span>
+    <h1>Їжа — борщ і вареники</h1>
+    <p class="eyebrow-line">Повтори слова про їжу й типи речень — виконай вправи та поговори з дорослими про борщ і вареники.</p>
+
+    <h3>📚 Лексика</h3>
+    <div class="exercise" id="hw2-v1">
+      <div class="q">З чого варять борщ?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="hw2-v2">
+      <div class="q">Що означає слово «куштувати»?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <h3 style="margin-top:26px;">✍️ Граматика: розповідне, питальне, спонукальне речення</h3>
+    <div class="exercise" id="hw2-g1">
+      <div class="q">«Мама варить борщ.» — яке це речення?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="hw2-g2">
+      <div class="q">«Поріж, будь ласка, моркву.» — яке це речення?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="hw2-g3">
+      <div class="q">«Що ти готуєш?» — яке це речення?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="hw2-ord1">
+      <div class="q">🧩 Збери речення зі слів у правильному порядку:</div>
+      <div class="order-pool"></div>
+      <div class="order-answer"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="hw2-ord2">
+      <div class="q">🧩 Збери ще одне речення:</div>
+      <div class="order-pool"></div>
+      <div class="order-answer"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <h3 style="margin-top:26px;">🧠 Творче завдання</h3>
+    <ul class="checklist" id="hw-list">
+      <li><input type="checkbox" id="hw1"><label for="hw1">Розкажи дорослим, з яких овочів готують борщ.</label></li>
+      <li><input type="checkbox" id="hw2"><label for="hw2">Задай дорослим одне питальне речення про їжу (наприклад: «Що ти любиш їсти на сніданок?»).</label></li>
+    </ul>
+
+    <h3 style="margin-top:26px;">Слова для повторення</h3>
+    <div class="keywords">
+      <span class="keyword-pill">буряк</span>
+      <span class="keyword-pill">каструля</span>
+      <span class="keyword-pill">варити</span>
+      <span class="keyword-pill">тісто</span>
+      <span class="keyword-pill">вареники</span>
+    </div>
+
+    <p style="margin-top:26px;">
+      <a class="btn ghost" href="lesson-02.html">← Повернутись до уроку</a>
+      <a class="btn ghost" href="../index.html">На головну</a>
+    </p>
+  </div>
+  <footer class="page-footer">ДЗ до уроку 2 з 36 · Українська мова · 4–5 клас</footer>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="../assets/students.js"></script>
+<script src="../assets/firebase-config.js"></script>
+<script src="../assets/lesson-kit.js"></script>
+<script src="../assets/platform.js"></script>
+<script>
+  LessonKit.initChoice(document.getElementById('hw2-v1'), [{text:"буряк", correct:true}, {text:"чашка", correct:false}, {text:"виделка", correct:false}]);
+  LessonKit.initChoice(document.getElementById('hw2-v2'), [{text:"пробувати їжу на смак", correct:true}, {text:"різати ножем", correct:false}, {text:"мити посуд", correct:false}]);
+  LessonKit.initChoice(document.getElementById('hw2-g1'), [{text:"розповідне", correct:true}, {text:"питальне", correct:false}, {text:"спонукальне", correct:false}]);
+  LessonKit.initChoice(document.getElementById('hw2-g2'), [{text:"спонукальне", correct:true}, {text:"розповідне", correct:false}, {text:"питальне", correct:false}]);
+  LessonKit.initChoice(document.getElementById('hw2-g3'), [{text:"питальне", correct:true}, {text:"розповідне", correct:false}, {text:"спонукальне", correct:false}]);
+  LessonKit.initOrderBuilder(document.getElementById('hw2-ord1'), ["Бабуся", "ліпить", "смачні", "вареники"]);
+  LessonKit.initOrderBuilder(document.getElementById('hw2-ord2'), ["Тато", "нарізав", "свіжу", "цибулю"]);
+  LessonKit.setTotalStars(7);
+  LessonKit.initChecklist('#hw-list');
+  Platform.initHomeworkPage('lesson-02', 'Урок 2. Їжа — борщ і вареники');
+</script>
+</body>
+</html>
