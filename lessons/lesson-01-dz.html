@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ДЗ — Урок 1. Моє повсякденне життя</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<script>if(!localStorage.getItem('zoshyt_current_student')){location.href='../login.html?next='+encodeURIComponent(location.pathname);}</script>
+
+<div class="progress-bar">
+  <a class="back-link" href="lesson-01.html">← до уроку</a>
+  <div class="progress-track"><div class="progress-fill" style="width:0%"></div></div>
+  <div class="stars"></div>
+</div>
+
+<div class="notebook">
+  <div class="page">
+    <span class="tag">Домашнє завдання · Урок 1</span>
+    <h1>Моє повсякденне життя</h1>
+    <p class="eyebrow-line">Закріпи слова й порядок слів у реченні — виконай вправи та розкажи дорослим про свій день.</p>
+
+    <h3>📚 Лексика</h3>
+    <div class="exercise" id="hw1-v1">
+      <div class="q">Що означає слово «прокидатися»?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="hw1-v2">
+      <div class="q">Обери правильне слово: «сумка, у якій носять зошити й книжки до школи»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <h3 style="margin-top:26px;">✍️ Граматика: слово, словосполучення, речення</h3>
+    <div class="exercise" id="hw1-g1">
+      <div class="q">«моя школа» — це:</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="hw1-g2">
+      <div class="q">«Я йду до школи.» — це:</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="hw1-ord1">
+      <div class="q">🧩 Збери речення зі слів у правильному порядку:</div>
+      <div class="order-pool"></div>
+      <div class="order-answer"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <h3 style="margin-top:26px;">🧠 Творче завдання</h3>
+    <ul class="checklist" id="hw-list">
+      <li><input type="checkbox" id="hw1"><label for="hw1">Розкажи дорослим свій розпорядок дня, використавши слова «спочатку», «потім», «нарешті».</label></li>
+      <li><input type="checkbox" id="hw2"><label for="hw2">Склади усно одне речення про вечір зі словом «вечеряти».</label></li>
+    </ul>
+
+    <h3 style="margin-top:26px;">Слова для повторення</h3>
+    <div class="keywords">
+      <span class="keyword-pill">прокидатися</span>
+      <span class="keyword-pill">школа</span>
+      <span class="keyword-pill">обідати</span>
+      <span class="keyword-pill">вечеряти</span>
+      <span class="keyword-pill">лягати спати</span>
+    </div>
+
+    <p style="margin-top:26px;">
+      <a class="btn ghost" href="lesson-01.html">← Повернутись до уроку</a>
+      <a class="btn ghost" href="../index.html">На головну</a>
+    </p>
+  </div>
+  <footer class="page-footer">ДЗ до уроку 1 з 36 · Українська мова · 4–5 клас</footer>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="../assets/students.js"></script>
+<script src="../assets/firebase-config.js"></script>
+<script src="../assets/lesson-kit.js"></script>
+<script src="../assets/platform.js"></script>
+<script>
+  LessonKit.initChoice(document.getElementById('hw1-v1'), [{text:"переставати спати, розплющувати очі вранці", correct:true}, {text:"лягати в ліжко ввечері", correct:false}, {text:"їсти сніданок", correct:false}]);
+  LessonKit.initChoice(document.getElementById('hw1-v2'), [{text:"портфель", correct:true}, {text:"будильник", correct:false}, {text:"перерва", correct:false}]);
+  LessonKit.initChoice(document.getElementById('hw1-g1'), [{text:"словосполучення", correct:true}, {text:"слово", correct:false}, {text:"речення", correct:false}]);
+  LessonKit.initChoice(document.getElementById('hw1-g2'), [{text:"речення", correct:true}, {text:"слово", correct:false}, {text:"словосполучення", correct:false}]);
+  LessonKit.initOrderBuilder(document.getElementById('hw1-ord1'), ["Щоранку", "я", "швидко", "одягаюся"]);
+  LessonKit.setTotalStars(5);
+  LessonKit.initChecklist('#hw-list');
+  Platform.initHomeworkPage('lesson-01', 'Урок 1. Моє повсякденне життя');
+</script>
+</body>
+</html>
