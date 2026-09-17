@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ДЗ — Урок 2. Їжа — борщ і вареники</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<script>if(!localStorage.getItem('zoshyt_current_student')){location.href='../login.html?next='+encodeURIComponent(location.pathname);}</script>
+
+<div class="progress-bar">
+  <a class="back-link" href="lesson-02.html">← до уроку</a>
+  <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
+</div>
+
+<div class="notebook">
+  <div class="page">
+    <span class="tag">Домашнє завдання · Урок 2</span>
+    <h1>Їжа — борщ і вареники</h1>
+    <p class="eyebrow-line">Коротко, без перевантаження — три маленькі кроки. Постав позначку біля виконаного.</p>
+
+    <ul class="checklist" id="hw-list">
+      <li><input type="checkbox" id="hw1"><label for="hw1">Вивчити напам'ять 5 слів для запам'ятовування (нижче).</label></li>
+      <li><input type="checkbox" id="hw2"><label for="hw2">Розповісти дорослим, з яких овочів готують борщ.</label></li>
+      <li><input type="checkbox" id="hw3"><label for="hw3">Скласти усно 2 речення про вареники — з чого їх ліплять і як варять.</label></li>
+    </ul>
+
+    <h3 style="margin-top:30px;">Слова для повторення</h3>
+    <div class="keywords">
+      <span class="keyword-pill">буряк</span>
+      <span class="keyword-pill">каструля</span>
+      <span class="keyword-pill">варити</span>
+      <span class="keyword-pill">тісто</span>
+      <span class="keyword-pill">вареники</span>
+    </div>
+
+    <p style="margin-top:26px;">
+      <a class="btn ghost" href="lesson-02.html">← Повернутись до уроку</a>
+      <a class="btn ghost" href="../index.html">На головну</a>
+    </p>
+  </div>
+  <footer class="page-footer">ДЗ до уроку 2 з 36 · Українська мова · 4–5 клас</footer>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="../assets/students.js"></script>
+<script src="../assets/firebase-config.js"></script>
+<script src="../assets/lesson-kit.js"></script>
+<script src="../assets/platform.js"></script>
+<script>
+  LessonKit.initChecklist('#hw-list');
+  Platform.initHomeworkPage('lesson-02', 'Урок 2. Їжа — борщ і вареники');
+</script>
+</body>
+</html>
