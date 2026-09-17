@@ -9,17 +9,17 @@
    Детальна інструкція — у README.md цього проєкту.
    ========================================================= */
 const firebaseConfig = {
-  apiKey: "ВАШ_apiKey",
-  authDomain: "ВАШ_authDomain",
-  projectId: "ВАШ_projectId",
-  storageBucket: "ВАШ_storageBucket",
-  messagingSenderId: "ВАШ_messagingSenderId",
-  appId: "ВАШ_appId"
+  apiKey: "AIzaSyBeRnIcvSCgK_tVz3-4fG9EvFLGDit680o",
+  authDomain: "ukrainian-d0a6f.firebaseapp.com",
+  projectId: "ukrainian-d0a6f",
+  storageBucket: "ukrainian-d0a6f.firebasestorage.app",
+  messagingSenderId: "118472089053",
+  appId: "1:118472089053:web:0b1a886bb92156182f2a34"
 };
 
 /* Пароль (код доступу) вчительської панелі /teacher/.
    Змініть на власний — будь-яке слово чи цифри. */
-window.TEACHER_PASSCODE = "змінити-цей-код";
+window.TEACHER_PASSCODE = "Vovavo12";
 
 // --- нижче нічого міняти не потрібно ---
 try {
