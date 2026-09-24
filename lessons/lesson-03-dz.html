@@ -24,10 +24,26 @@
     <div class="dz-vocab-row">
       <div class="dz-vocab-item"><div class="ic">😊</div><div class="lb">обличчя</div></div>
       <div class="dz-vocab-item"><div class="ic">💇</div><div class="lb">волосся</div></div>
-      <div class="dz-vocab-item"><div class="ic">🌀</div><div class="lb">кучеряве</div></div>
-      <div class="dz-vocab-item"><div class="ic">👁️</div><div class="lb">карі очі</div></div>
-      <div class="dz-vocab-item"><div class="ic">📏</div><div class="lb">струнка</div></div>
+      <div class="dz-vocab-item"><div class="ic">🌀</div><div class="lb">кучерявий</div></div>
+      <div class="dz-vocab-item"><div class="ic">👁️</div><div class="lb">карий</div></div>
+      <div class="dz-vocab-item"><div class="ic">📏</div><div class="lb">стрункий</div></div>
     </div>
+  </div>
+
+  <h3 class="dz-section-title">📖 Словник</h3>
+  <div class="dz-dict dz-narrow">
+  <dl>
+    <dt>обличчя</dt>
+    <dd>передня частина голови людини</dd>
+    <dt>волосся</dt>
+    <dd>росте на голові</dd>
+    <dt>кучерявий</dt>
+    <dd>з волоссям, що в'ється кільцями</dd>
+    <dt>карий</dt>
+    <dd>колір очей — темно-коричневий</dd>
+    <dt>стрункий</dt>
+    <dd>тонкий, з гарною поставою</dd>
+  </dl>
   </div>
 
   <div class="dz-textcard">
@@ -55,7 +71,7 @@
   </div>
   </div>
 
-  <h3 class="dz-section-title">Трішки граматики: прикметник: який? яка? яке? які?</h3>
+  <h3 class="dz-section-title">✍️ Граматика: прикметник: який? яка? яке? які?</h3>
   <div class="dz-narrow">
   <div class="exercise" id="gr3-1">
     <div class="q">Обличчя (яке?) ___</div>
@@ -64,6 +80,40 @@
   </div>
   <div class="exercise" id="gr3-2">
     <div class="q">Волосся (яке?) ___</div>
+    <div class="choices"></div>
+    <div class="feedback"></div>
+  </div>
+  <div class="exercise" id="gr3-3">
+    <div class="q">Очі (які?) ___ (карий/каре/карі)</div>
+    <div class="choices"></div>
+    <div class="feedback"></div>
+  </div>
+  <div class="exercise" id="gr3-4">
+    <div class="q">Хлопчик (який?) ___ (високий/високе/висока)</div>
+    <div class="choices"></div>
+    <div class="feedback"></div>
+  </div>
+  <div class="exercise" id="gr3-5">
+    <div class="q">Діти (які?) ___ (веселий/весела/веселі)</div>
+    <div class="choices"></div>
+    <div class="feedback"></div>
+  </div>
+  </div>
+
+  <h3 class="dz-section-title">🇺🇦 Цікавинка про Україну</h3>
+  <div class="dz-textcard" style="background:var(--gold-pale); border:none;">
+    <p>Українська вишиванка — вишита сорочка — один із найвідоміших символів України у світі.</p>
+    <p>У кожному регіоні країни є свій унікальний візерунок, і за ним колись навіть можна було впізнати, звідки людина родом!</p>
+    <p>Щороку у третій четвер травня українці й люди з інших країн одягають вишиванки на День вишиванки.</p>
+  </div>
+  <div class="dz-narrow">
+  <div class="exercise" id="ukr3-1">
+    <div class="q">Як називається традиційна вишита сорочка?</div>
+    <div class="choices"></div>
+    <div class="feedback"></div>
+  </div>
+  <div class="exercise" id="ukr3-2">
+    <div class="q">Що можна було впізнати за візерунком вишиванки?</div>
     <div class="choices"></div>
     <div class="feedback"></div>
   </div>
@@ -89,7 +139,12 @@
   LessonKit.initChoice(document.getElementById('q3-3'), [{text:"Невисока", correct:true}, {text:"Висока", correct:false}, {text:"Повна", correct:false}]);
   LessonKit.initChoice(document.getElementById('gr3-1'), [{text:"кругле", correct:true}, {text:"круглий", correct:false}, {text:"кругла", correct:false}]);
   LessonKit.initChoice(document.getElementById('gr3-2'), [{text:"русяве", correct:true}, {text:"русявий", correct:false}, {text:"русява", correct:false}]);
-  LessonKit.setTotalStars(5);
+  LessonKit.initChoice(document.getElementById('gr3-3'), [{text:"карі", correct:true}, {text:"карий", correct:false}, {text:"каре", correct:false}]);
+  LessonKit.initChoice(document.getElementById('gr3-4'), [{text:"високий", correct:true}, {text:"високе", correct:false}, {text:"висока", correct:false}]);
+  LessonKit.initChoice(document.getElementById('gr3-5'), [{text:"веселі", correct:true}, {text:"веселий", correct:false}, {text:"весела", correct:false}]);
+  LessonKit.initChoice(document.getElementById('ukr3-1'), [{text:"Вишиванка", correct:true}, {text:"Кожушанка", correct:false}, {text:"Свитка", correct:false}]);
+  LessonKit.initChoice(document.getElementById('ukr3-2'), [{text:"Звідки людина родом", correct:true}, {text:"Скільки їй років", correct:false}, {text:"Яка в неї професія", correct:false}]);
+  LessonKit.setTotalStars(10);
   Platform.initHomeworkPage('lesson-03', 'Урок 3. Моя сестричка Софійка');
 </script>
 </body>

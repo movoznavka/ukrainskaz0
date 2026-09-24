@@ -30,6 +30,22 @@
     </div>
   </div>
 
+  <h3 class="dz-section-title">📖 Словник</h3>
+  <div class="dz-dict dz-narrow">
+  <dl>
+    <dt>прокидатися</dt>
+    <dd>переставати спати, розплющувати очі вранці</dd>
+    <dt>школа</dt>
+    <dd>місце, де діти навчаються</dd>
+    <dt>обідати</dt>
+    <dd>їсти в середині дня</dd>
+    <dt>вечеряти</dt>
+    <dd>їсти ввечері, останній прийом їжі за день</dd>
+    <dt>лягати спати</dt>
+    <dd>йти в ліжко, щоб заснути</dd>
+  </dl>
+  </div>
+
   <div class="dz-textcard">
     <p>Щоранку я <span class="hl">прокидаюся</span> о сьомій годині. Потім я швидко одягаюся і йду до <span class="hl">школи</span> з портфелем.</p>
     <p>Удень, коли уроки закінчуються, я <span class="hl">обідаю</span> разом з родиною. Ввечері вся сім'я <span class="hl">вечеряє</span> за одним столом.</p>
@@ -55,7 +71,7 @@
   </div>
   </div>
 
-  <h3 class="dz-section-title">Трішки граматики: слово, словосполучення, речення</h3>
+  <h3 class="dz-section-title">✍️ Граматика: слово, словосполучення, речення</h3>
   <div class="dz-narrow">
   <div class="exercise" id="gr1-1">
     <div class="q">«до школи» — це:</div>
@@ -64,6 +80,40 @@
   </div>
   <div class="exercise" id="gr1-2">
     <div class="q">«Я лягаю спати.» — це:</div>
+    <div class="choices"></div>
+    <div class="feedback"></div>
+  </div>
+  <div class="exercise" id="gr1-3">
+    <div class="q">«читати книжку» — це:</div>
+    <div class="choices"></div>
+    <div class="feedback"></div>
+  </div>
+  <div class="exercise" id="gr1-4">
+    <div class="q">«Школа» — це:</div>
+    <div class="choices"></div>
+    <div class="feedback"></div>
+  </div>
+  <div class="exercise" id="gr1-5">
+    <div class="q">«Учні слухають учителя.» — це:</div>
+    <div class="choices"></div>
+    <div class="feedback"></div>
+  </div>
+  </div>
+
+  <h3 class="dz-section-title">🇺🇦 Цікавинка про Україну</h3>
+  <div class="dz-textcard" style="background:var(--gold-pale); border:none;">
+    <p>Чи знаєш ти, що на території сучасної України існувала одна з найдавніших цивілізацій світу — Трипільська культура?</p>
+    <p>Ще 5–7 тисяч років тому люди тут будували великі поселення, іноді на тисячі будинків. Тоді ще не було годинників, але люди теж прокидалися вранці, готували їжу і працювали за сонцем!</p>
+    <p>Археологи й досі знаходять сліди їхнього повсякденного життя по всій Україні.</p>
+  </div>
+  <div class="dz-narrow">
+  <div class="exercise" id="ukr1-1">
+    <div class="q">Як називається давня цивілізація, що жила на території України?</div>
+    <div class="choices"></div>
+    <div class="feedback"></div>
+  </div>
+  <div class="exercise" id="ukr1-2">
+    <div class="q">Скільки тисяч років тому вона існувала?</div>
     <div class="choices"></div>
     <div class="feedback"></div>
   </div>
@@ -89,7 +139,12 @@
   LessonKit.initChoice(document.getElementById('q1-3'), [{text:"Коли надворі темніє", correct:true}, {text:"Одразу після обіду", correct:false}, {text:"Уранці", correct:false}]);
   LessonKit.initChoice(document.getElementById('gr1-1'), [{text:"словосполучення", correct:true}, {text:"слово", correct:false}, {text:"речення", correct:false}]);
   LessonKit.initChoice(document.getElementById('gr1-2'), [{text:"речення", correct:true}, {text:"слово", correct:false}, {text:"словосполучення", correct:false}]);
-  LessonKit.setTotalStars(5);
+  LessonKit.initChoice(document.getElementById('gr1-3'), [{text:"словосполучення", correct:true}, {text:"слово", correct:false}, {text:"речення", correct:false}]);
+  LessonKit.initChoice(document.getElementById('gr1-4'), [{text:"слово", correct:true}, {text:"словосполучення", correct:false}, {text:"речення", correct:false}]);
+  LessonKit.initChoice(document.getElementById('gr1-5'), [{text:"речення", correct:true}, {text:"слово", correct:false}, {text:"словосполучення", correct:false}]);
+  LessonKit.initChoice(document.getElementById('ukr1-1'), [{text:"Трипільська культура", correct:true}, {text:"Троянська культура", correct:false}, {text:"Шумерська культура", correct:false}]);
+  LessonKit.initChoice(document.getElementById('ukr1-2'), [{text:"5–7 тисяч років тому", correct:true}, {text:"100 років тому", correct:false}, {text:"500 років тому", correct:false}]);
+  LessonKit.setTotalStars(10);
   Platform.initHomeworkPage('lesson-01', 'Урок 1. Мій день');
 </script>
 </body>

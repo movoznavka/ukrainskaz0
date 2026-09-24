@@ -30,6 +30,22 @@
     </div>
   </div>
 
+  <h3 class="dz-section-title">📖 Словник</h3>
+  <div class="dz-dict dz-narrow">
+  <dl>
+    <dt>веселий</dt>
+    <dd>той, кому радісно</dd>
+    <dt>добрий</dt>
+    <dd>той, хто допомагає іншим</dd>
+    <dt>сміливий</dt>
+    <dd>той, хто нічого не боїться</dd>
+    <dt>чесний</dt>
+    <dd>той, хто каже правду</dd>
+    <dt>лінивий</dt>
+    <dd>той, хто не любить працювати</dd>
+  </dl>
+  </div>
+
   <div class="dz-textcard">
     <p>Оля — моя найкраща подруга. Вона <span class="hl">весела</span> і дуже <span class="hl">добра</span>.</p>
     <p>Коли комусь сумно, Оля завжди підходить і <span class="hl">допомагає</span> — ділиться цукеркою або просто розмовляє.</p>
@@ -55,7 +71,7 @@
   </div>
   </div>
 
-  <h3 class="dz-section-title">Трішки граматики: іменник + прикметник</h3>
+  <h3 class="dz-section-title">✍️ Граматика: іменник + прикметник</h3>
   <div class="dz-narrow">
   <div class="exercise" id="gr4-1">
     <div class="q">Оля дуже ___ (добрий/добра/добре)</div>
@@ -64,6 +80,35 @@
   </div>
   <div class="exercise" id="gr4-2">
     <div class="q">Друзі ___ (щедрий/щедре/щедрі)</div>
+    <div class="choices"></div>
+    <div class="feedback"></div>
+  </div>
+  <div class="exercise" id="gr4-3">
+    <div class="q">Кіт ___ (лінивий/лінива/ліниве)</div>
+    <div class="choices"></div>
+    <div class="feedback"></div>
+  </div>
+  <div class="exercise" id="gr4-4">
+    <div class="q">Бабуся дуже ___ (мудрий/мудра/мудре)</div>
+    <div class="choices"></div>
+    <div class="feedback"></div>
+  </div>
+  <div class="exercise" id="gr4-5">
+    <div class="q">Хлопці ___ (сміливий/смілива/сміливі)</div>
+    <div class="choices"></div>
+    <div class="feedback"></div>
+  </div>
+  </div>
+
+  <h3 class="dz-section-title">🇺🇦 Цікавинка про Україну</h3>
+  <div class="dz-textcard" style="background:var(--gold-pale); border:none;">
+    <p>Українських козаків у всьому світі знають як хоробрих і волелюбних людей.</p>
+    <p>Вони цінували свободу, дружбу і завжди готові були прийти на допомогу товаришу.</p>
+    <p>Саме тому сміливість, щедрість і вірність друзям — риси характеру, якими здавна пишаються українці.</p>
+  </div>
+  <div class="dz-narrow">
+  <div class="exercise" id="ukr4-1">
+    <div class="q">Якими рисами характеру здавна відомі українські козаки?</div>
     <div class="choices"></div>
     <div class="feedback"></div>
   </div>
@@ -89,7 +134,11 @@
   LessonKit.initChoice(document.getElementById('q4-3'), [{text:"Собак і павуків", correct:true}, {text:"Темряви", correct:false}, {text:"Іспитів", correct:false}]);
   LessonKit.initChoice(document.getElementById('gr4-1'), [{text:"добра", correct:true}, {text:"добрий", correct:false}, {text:"добре", correct:false}]);
   LessonKit.initChoice(document.getElementById('gr4-2'), [{text:"щедрі", correct:true}, {text:"щедрий", correct:false}, {text:"щедре", correct:false}]);
-  LessonKit.setTotalStars(5);
+  LessonKit.initChoice(document.getElementById('gr4-3'), [{text:"лінивий", correct:true}, {text:"лінива", correct:false}, {text:"ліниве", correct:false}]);
+  LessonKit.initChoice(document.getElementById('gr4-4'), [{text:"мудра", correct:true}, {text:"мудрий", correct:false}, {text:"мудре", correct:false}]);
+  LessonKit.initChoice(document.getElementById('gr4-5'), [{text:"сміливі", correct:true}, {text:"сміливий", correct:false}, {text:"смілива", correct:false}]);
+  LessonKit.initChoice(document.getElementById('ukr4-1'), [{text:"Сміливість і вірність друзям", correct:true}, {text:"Лінь і жадібність", correct:false}, {text:"Боязкість і грубість", correct:false}]);
+  LessonKit.setTotalStars(9);
   Platform.initHomeworkPage('lesson-04', 'Урок 4. Моя подруга Оля');
 </script>
 </body>
