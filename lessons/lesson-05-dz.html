@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ДЗ до уроку 5. Моя школа</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<script>if(!localStorage.getItem('zoshyt_current_student')){location.href='../login.html?next='+encodeURIComponent(location.pathname);}</script>
+<div class="progress-bar">
+  <a class="back-link" href="../index.html">← зошит</a>
+  <div class="progress-track"><div class="progress-fill"></div></div>
+  <div class="stars">☆☆☆☆☆☆☆☆</div>
+</div>
+<div class="notebook">
+  <div class="dz-hero">
+    <div class="dz-icon">🏫</div>
+    <h1>Домашнє завдання</h1>
+    <div class="dz-subtitle">Урок 5 · Рід іменників · нові слова!</div>
+  </div>
+  <div class="page dz-narrow">
+    <h2>1. Швидке сортування</h2><div id="a"></div>
+    <h2>2. Мій / моя / моє</h2><div id="b"></div>
+    <h2>3. Закінчення прикметників</h2><div id="c"></div>
+    <h2>4. Збери речення</h2><div id="d"></div>
+    <h2>5. Читаємо й шукаємо</h2><div id="e"></div>
+    <h2>6. У зошиті</h2>
+    <ul class="checklist" id="hw-list">
+      <li><input type="checkbox" id="h1"><label for="h1">Випиши в зошит по 4 слова кожного роду (він / вона / воно) і біля кожного напиши мій, моя або моє.</label></li>
+      <li><input type="checkbox" id="h2"><label for="h2">Склади 3 речення про свою кімнату чи клас: у кожному має бути іменник з прикметником.</label></li>
+      <li><input type="checkbox" id="h3"><label for="h3">Вивчи 12 слів уроку — завтра вчителька перевірить!</label></li>
+    </ul>
+    <p><a class="btn ghost" href="../index.html">← До зошита</a></p>
+  </div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="../assets/students.js"></script>
+<script src="../assets/firebase-config.js"></script>
+<script src="../assets/lesson-kit.js"></script>
+<script src="../assets/lesson-extra.js"></script>
+<script src="../assets/platform.js"></script>
+<script>
+  LessonKit.setTotalStars(10);
+  Extra.genderDrill('#a','🎯 Нові слова! Він, вона чи воно?',
+    [["стілець","m"],["шафа","f"],["крісло","n"],["рюкзак","m"],["гумка","f"],["ім’я","n"],["пенал","m"],["лампа","f"],["дерево","n"],["полиця","f"]]);
+  Extra.choice('#b','___ ім’я',["Мій","Моя","Моє"],2);
+  Extra.choice('#b','___ гумка',["Мій","Моя","Моє"],1);
+  Extra.choice('#b','Яке слово ЗАЙВЕ (інший рід)?',["пенал","рюкзак","шафа","стілець"],2);
+  Extra.choice('#b','Яке слово ЗАЙВЕ (інший рід)?',["ім’я","дерево","лампа","крісло"],2);
+  Extra.choice('#b','Яке речення правильне?',["Новий шафа стоїть у класі.","Нова шафа стоїть у класі.","Нове шафа стоїть у класі."],1);
+  Extra.fillIn('#c','✍️ Впиши закінчення:',
+    [["Наше зручн","е","крісло"],["Моя красив","а","лампа"],["Мій син","ій","рюкзак"],["Наша висок","а","полиця"]]);
+  Extra.order('#d','🧩 Збери речення:',["Моя","нова","гумка","лежить","у","пеналі"]);
+  Extra.order('#d','🧩 Збери речення:',["Наше","улюблене","крісло","стоїть","біля","вікна"]);
+  Extra.wordPick('#e','🔍 Прочитай і познач усі іменники СЕРЕДНЬОГО роду (початкова форма, «моє»):',
+    "Моє улюблене місце в школі — бібліотека. Там стоїть м’яке крісло, а біля нього — велике вікно. Бібліотекарка пані Ірина дозволила мені обрати книжку про козаків. Це було справжнє відкриття!",
+    ["місце","крісло","вікно","відкриття"]);
+  LessonKit.initChecklist('#hw-list');
+  Platform.initLessonPage('lesson-05', 'Урок 5. Моя школа');
+</script>
+</body>
+</html>

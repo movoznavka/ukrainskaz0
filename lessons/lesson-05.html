@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Урок 5. Моя школа</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .hero-lesson{ margin:18px 20px 0; padding:28px 30px; border-radius:26px; background:linear-gradient(135deg,#E3EEFC,#FCE4EE 55%,#FFF1D0); }
+  .goal-box{ background:#fff; border-left:5px solid var(--gold); border-radius:0 var(--radius) var(--radius) 0; padding:14px 18px; max-width:var(--max-w); }
+  .genders{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; margin:18px 0; max-width:900px; }
+  .gcard{ border-radius:20px; padding:18px; background:var(--bg); border:3px solid var(--c); box-shadow:var(--shadow-sm); }
+  .gcard h3{ color:var(--c); font-size:1.5rem; margin:0; }
+  .gcard .my{ font:700 1.1rem Comfortaa,sans-serif; color:var(--c); margin-bottom:8px; }
+  .gcard .ex{ font-weight:800; margin-top:8px; }
+  .g-m{ --c:#3B7DD8; --bg:#E3EEFC } .g-f{ --c:#D9558C; --bg:#FCE4EE } .g-n{ --c:#C98505; --bg:#FFF1D0 }
+  .trick{ background:var(--coral-pale); border-left:5px solid var(--coral); border-radius:0 16px 16px 0; padding:14px 18px; max-width:var(--max-w); margin:12px 0; }
+  .mnemo{ font:700 1.25rem Comfortaa,sans-serif; text-align:center; padding:16px; border-radius:16px; background:var(--ink); color:#fff; max-width:var(--max-w); }
+  .mnemo b:nth-child(1){ color:#8DB8F5 } .mnemo b:nth-child(2){ color:#F5A3C4 } .mnemo b:nth-child(3){ color:#F7CD6A }
+  .ua-story{ position:relative; overflow:hidden; max-width:var(--max-w); padding:26px 24px 46px; border-radius:24px; background:linear-gradient(180deg,#7DB9F5 0%,#CDE6FF 50%,#FFE27A 100%); box-shadow:var(--shadow); }
+  .ua-story::after{ content:"🌻🌾🌻🌾🌻"; position:absolute; bottom:6px; left:16px; font-size:1.8rem; letter-spacing:8px; }
+  .ua-story h2{ color:#0B3D8C; }
+  .ua-story p{ background:rgba(255,255,255,.8); border-radius:14px; padding:10px 14px; font-family:Literata,serif; font-size:1.05rem; line-height:1.7; }
+</style>
+</head>
+<body>
+<script>if(!localStorage.getItem('zoshyt_current_student')){location.href='../login.html?next='+encodeURIComponent(location.pathname);}</script>
+
+<div class="progress-bar">
+  <a class="back-link" href="../index.html">← зошит</a>
+  <div class="progress-track"><div class="progress-fill"></div></div>
+  <div class="stars">☆☆☆☆☆☆☆☆</div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" data-target="#sec-words">Слова</div>
+  <div class="tab" data-target="#sec-grammar">Правило</div>
+  <div class="tab" data-target="#sec-practice">Практика</div>
+  <div class="tab" data-target="#sec-text">Текст 🌻</div>
+  <div class="tab" data-target="#sec-recall">Пригадай</div>
+  <div class="tab" data-target="#sec-summary">Підсумок</div>
+</div>
+
+<div class="notebook">
+  <div class="hero-lesson">
+    <span class="tag">Урок 5 · Моя школа</span>
+    <h1>🎒 Він, вона чи воно?</h1>
+    <div class="goal-box"><strong>Мета:</strong> назвати шкільні предмети й визначати рід іменників (чоловічий, жіночий, середній) за допомогою «мій / моя / моє».</div>
+  </div>
+
+  <section id="sec-words" class="section page">
+    <div class="section-head"><span class="section-num">1</span><h2>Шкільні слова</h2></div>
+    <p>Натисни на картку, щоб перевернути. Зверни увагу на слова <strong>мій / моя / моє</strong> у прикладах!</p>
+    <div class="card-grid" id="vocab"></div>
+  </section>
+
+  <section id="sec-grammar" class="section page">
+    <div class="section-head"><span class="section-num">2</span><h2>Рід іменників</h2></div>
+    <p>Кожен іменник має рід. Щоб дізнатися, який він, підстав слово <strong>мій</strong>, <strong>моя</strong> або <strong>моє</strong>.</p>
+    <div class="genders">
+      <div class="gcard g-m"><h3>він</h3><div class="my">мій · чоловічий</div>Закінчується на приголосний або -ь, -й.<div class="ex">мій зошит, мій олівець, мій портфель</div></div>
+      <div class="gcard g-f"><h3>вона</h3><div class="my">моя · жіночий</div>Здебільшого закінчується на -а, -я.<div class="ex">моя парта, моя ручка, моя школа</div></div>
+      <div class="gcard g-n"><h3>воно</h3><div class="my">моє · середній</div>Закінчується на -о, -е, -я (після подвоєння).<div class="ex">моє вікно, моє місце, моє завдання</div></div>
+    </div>
+    <div class="mnemo"><b>мій</b> — він · <b>моя</b> — вона · <b>моє</b> — воно</div>
+    <div class="trick"><strong>⚠️ Пастка!</strong> М'який знак буває в обох родах: <em>мій портфель</em> (він), але <em>моя сіль</em> (вона). А слова на -я бувають різні: <em>моя земля</em> (вона), але <em>моє завдання</em> (воно). Завжди перевіряй: мій / моя / моє!</div>
+    <p><strong>Прикметник теж змінюється за родом:</strong> новий підручник, нова парта, нове вікно (ти вчив(-ла) це в уроці 4).</p>
+  </section>
+
+  <section id="sec-practice" class="section page">
+    <div class="section-head"><span class="section-num">3</span><h2>Практика</h2></div>
+    <h3>Гра: швидке сортування</h3><div id="ex-drill"></div>
+    <h3>Обери правильне</h3><div id="ex-choice"></div>
+    <h3>Впиши закінчення</h3><div id="ex-fill"></div>
+    <h3>Збери речення</h3><div id="ex-order"></div>
+  </section>
+
+  <section id="sec-text" class="section page">
+    <div class="ua-story">
+      <h2>🔔 Перший дзвоник</h2>
+      <p>Сьогодні свято — День знань. У класі відчинене вікно, а поруч стоїть нова парта. Хлопчик тримає великий портфель. Першокласниця несе букет квітів. Мама усміхається, а вчителька вітає всіх. Це найкраще свято в Україні!</p>
+    </div>
+    <h3 style="margin-top:24px">Робота з текстом</h3>
+    <div id="ex-text"></div>
+  </section>
+
+  <section id="sec-recall" class="section page">
+    <div class="section-head"><span class="section-num">4</span><h2>Пригадай з уроку 4</h2></div>
+    <p>Повторюємо, щоб не забути: прикметники й характер.</p>
+    <div id="ex-recall"></div>
+  </section>
+
+  <section id="sec-summary" class="section page">
+    <div class="section-head"><span class="section-num">5</span><h2>Запам'ятай</h2></div>
+    <div class="keywords"><span class="keyword-pill">мій — він</span><span class="keyword-pill">моя — вона</span><span class="keyword-pill">моє — воно</span><span class="keyword-pill">підручник</span><span class="keyword-pill">парта</span><span class="keyword-pill">вікно</span></div>
+    <p>Тепер ти вмієш визначати рід іменників. Далі — домашнє завдання з <strong>новими</strong> словами. Наступний урок: «Шкільні предмети» (однина і множина).</p>
+    <p><a class="btn" href="lesson-05-dz.html">Перейти до ДЗ →</a> <a class="btn ghost" href="../index.html">← До зошита</a></p>
+  </section>
+  <footer class="page-footer">Урок 5 з 36 · Українська мова · 4–5 клас</footer>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="../assets/students.js"></script>
+<script src="../assets/firebase-config.js"></script>
+<script src="../assets/lesson-kit.js"></script>
+<script src="../assets/lesson-extra.js"></script>
+<script src="../assets/platform.js"></script>
+<script>
+  LessonKit.initFlashcards('#vocab', [
+    {word:"підручник", translation:"книжка для навчання", example:"Мій підручник лежить у портфелі.", icon:"📗"},
+    {word:"зошит", translation:"аркуші для письма", example:"Мій зошит новий.", icon:"📓"},
+    {word:"парта", translation:"стіл для учня", example:"Моя парта біля вікна.", icon:"🪑"},
+    {word:"дошка", translation:"на ній пише вчитель", example:"Моя улюблена дошка зелена.", icon:"🟩"},
+    {word:"ручка", translation:"нею пишуть", example:"Моя ручка синя.", icon:"🖊️"},
+    {word:"олівець", translation:"ним малюють і пишуть", example:"Мій олівець червоний.", icon:"✏️"},
+    {word:"портфель", translation:"сумка для книжок", example:"Мій портфель важкий.", icon:"🎒"},
+    {word:"вікно", translation:"крізь нього видно двір", example:"Моє вікно велике.", icon:"🪟"},
+    {word:"завдання", translation:"що треба зробити", example:"Моє завдання легке.", icon:"📝"},
+    {word:"перерва", translation:"відпочинок між уроками", example:"Моя перерва — 10 хвилин.", icon:"⏰"},
+    {word:"дзвоник", translation:"він кличе на урок", example:"Мій дзвоник гучний.", icon:"🔔"},
+    {word:"розклад", translation:"список уроків на день", example:"Мій розклад на стіні.", icon:"🗓️"}
+  ]);
+  LessonKit.initTabs();
+  LessonKit.setTotalStars(19);
+
+  Extra.genderDrill('#ex-drill','🎯 Натискай «він», «вона» або «воно» для кожного слова:',
+    [["підручник","m"],["парта","f"],["вікно","n"],["зошит","m"],["ручка","f"],["завдання","n"],["олівець","m"],["дошка","f"],["місце","n"],["портфель","m"],["крейда","f"],["речення","n"]]);
+
+  var C='#ex-choice';
+  Extra.choice(C,'1️⃣ ___ зошит',["Мій","Моя","Моє"],0);
+  Extra.choice(C,'2️⃣ ___ вікно',["Мій","Моя","Моє"],2);
+  Extra.choice(C,'3️⃣ ___ ручка',["Мій","Моя","Моє"],1);
+  Extra.choice(C,'4️⃣ Пастка з м’яким знаком: ___ портфель',["Мій","Моя","Моє"],0);
+  Extra.choice(C,'5️⃣ Пастка з -я: ___ завдання',["Мій","Моя","Моє"],2);
+  Extra.choice(C,'6️⃣ Яке слово ЗАЙВЕ (інший рід)?',["підручник","олівець","ручка","зошит"],2);
+  Extra.choice(C,'7️⃣ Яке слово ЗАЙВЕ (інший рід)?',["дошка","крейда","вікно","лінійка"],2);
+  Extra.choice(C,'8️⃣ Яке речення правильне?',["Новий дошка висить на стіні.","Нова дошка висить на стіні.","Нове дошка висить на стіні."],1);
+
+  Extra.fillIn('#ex-fill','✍️ Впиши закінчення прикметника (1–2 літери):',
+    [["Мій нов","ий","підручник"],["Моя син","я","ручка"],["Наше велик","е","вікно"],["Наша нов","а","лінійка"]]);
+
+  Extra.order('#ex-order','🧩 Збери речення:',["Моя","нова","парта","стоїть","біля","вікна"]);
+  Extra.order('#ex-order','🧩 Збери речення:',["Мій","новий","підручник","лежить","у","портфелі"]);
+
+  Extra.choice('#ex-text','Яке свято описано в тексті?',["День знань","Новий рік","День міста"],0);
+  Extra.choice('#ex-text','Хто несе букет квітів?',["Першокласниця","Вчителька","Хлопчик"],0);
+  Extra.choice('#ex-text','Знайди іменник середнього роду:',["вікно","парта","портфель"],0);
+  Extra.wordPick('#ex-text','🔍 Познач усі іменники жіночого роду (початкова форма, відповідають на «хто? що?» і мають «моя»):',
+    "Сьогодні свято — День знань. У класі відчинене вікно, а поруч стоїть нова парта. Хлопчик тримає великий портфель. Першокласниця несе букет квітів. Мама усміхається, а вчителька вітає всіх.",
+    ["парта","першокласниця","мама","вчителька"]);
+
+  var R='#ex-recall';
+  Extra.choice(R,'Оля дуже ___ (весела / веселий / веселе).',["весела","веселий","веселе"],0);
+  Extra.choice(R,'Протилежність до слова «сміливий»:',["боязкий","щедрий","чесний"],0);
+  Extra.choice(R,'Мишеня ___ (сміливий / смілива / сміливе).',["сміливий","смілива","сміливе"],2);
+
+  Platform.initLessonPage('lesson-05', 'Урок 5. Моя школа');
+</script>
+</body>
+</html>
