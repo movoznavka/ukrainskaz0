@@ -11,7 +11,9 @@
   Platform.LESSONS = [
     { id: 'lesson-01', title: 'Урок 1. Моє повсякденне життя',     file: 'lesson-01.html' },
     { id: 'lesson-02', title: 'Урок 2. Їжа — борщ і вареники',      file: 'lesson-02.html' },
-    { id: 'lesson-03', title: 'Урок 3. Зовнішність людини',        file: 'lesson-03.html' }
+    { id: 'lesson-03', title: 'Урок 3. Зовнішність людини',        file: 'lesson-03.html' },
+    { id: 'lesson-05', title: 'Урок 5. Характер людини',          file: 'lesson-04.html' }.
+    { id: 'lesson-05', title: 'Урок 5. Моя школа',        file: 'lesson-05.html' }
   ];
 
   Platform.getStudents = function () {
