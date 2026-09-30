@@ -50,4 +50,73 @@ function wordPick(box,q,text,targets){
   fb.textContent=all?'Знайдено всі '+hit+'! 🎉':'Знайдено '+hit+' з '+targets.length+(bad?', зайвих: '+bad+' (червоні — зніми позначку)':'. Шукай ще!');
   if(!all)sp.forEach(function(s){if(s.classList.contains('no')){s.classList.remove('no');s.classList.add('marked')}});
   if(all&&!got){got=true;star(e)}}}
-return{mk:mk,choice:choice,order:order,genderDrill:genderDrill,fillIn:fillIn,wordPick:wordPick}})();
+
+var st2=document.createElement('style');st2.textContent=
+'.mp-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mp-col{display:flex;flex-direction:column;gap:8px}.mp-btn{width:100%;text-align:center}'+
+'.mp-btn.sel{outline:3px solid #E9B23C}.mp-btn.ok{background:#DCEEDC!important;border-color:#386B39!important;opacity:.7}.mp-btn.no{background:#FBE4DC!important;border-color:#C2542C!important}'+
+'.mem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0}.mem-card{min-height:64px;border-radius:14px;border:3px solid #C9DCC7;background:#fff;font:700 1rem Nunito,sans-serif;cursor:pointer;padding:4px}'+
+'.mem-card.up{background:#FFF1D0;border-color:#E9B23C}.mem-card.ok{background:#DCEEDC;border-color:#386B39}'+
+'.tw-row{margin:10px 0;font-size:1.05rem;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.tw-row input{width:9em;font:800 1rem Nunito,sans-serif;border:2px solid #C9DCC7;border-radius:8px;padding:5px 8px}'+
+'.tw-row input.ok{border-color:#386B39;background:#DCEEDC}.tw-row input.no{border-color:#C2542C;background:#FBE4DC}'+
+'.tf-s{font-size:1.15rem;font-weight:700;margin:10px 0;min-height:3em}.ef-item{margin:14px 0;padding:10px;border-radius:12px;background:#fff}';
+document.head.appendChild(st2);
+function sh(a){return a.slice().sort(function(){return Math.random()-.5})}
+function norm(s){return s.trim().toLowerCase().replace(/['ʼ`]/g,'’').replace(/\s+/g,' ')}
+function clean(s){return norm(s.replace(/[.,!?—:;«»…]/g,''))}
+function btn(p,t,c){var b=document.createElement('button');b.className=c||'btn small';b.textContent=t;p.appendChild(b);return b}
+/* З'єднай пари */
+function matchPairs(box,q,pairs){
+ var d=mk(box,'<div class="q">'+q+'</div>'),g=add(d,'mp-grid'),L=add(g,'mp-col'),R=add(g,'mp-col'),fb=add(d,'feedback'),sel=null,done=0,err=0;
+ function col(c,side){sh(pairs.map(function(p,i){return[p[side],i]})).forEach(function(x){var b=btn(c,x[0],'choice-btn mp-btn');b.dataset.i=x[1];b.dataset.s=side;
+  b.onclick=function(e){if(b.disabled)return;
+   if(sel&&sel.dataset.s===b.dataset.s){sel.classList.remove('sel');sel=sel===b?null:b;if(sel)b.classList.add('sel');return}
+   if(!sel){sel=b;b.classList.add('sel');return}
+   var s=sel;s.classList.remove('sel');sel=null;
+   if(s.dataset.i===b.dataset.i){s.classList.add('ok');b.classList.add('ok');s.disabled=b.disabled=true;done++;fb.className='feedback ok';fb.textContent='✓';
+    if(done===pairs.length){fb.textContent='Усі пари! Помилок: '+err+' 🎉';star(e)}}
+   else{err++;s.classList.add('no');b.classList.add('no');setTimeout(function(){s.classList.remove('no');b.classList.remove('no')},500);fb.className='feedback no';fb.textContent='Не пара. Подумай ще!'}}})}
+ col(L,0);col(R,1)}
+/* Гра на пам'ять */
+function memory(box,q,pairs){
+ var d=mk(box,'<div class="q">'+q+'</div>'),g=add(d,'mem-grid'),fb=add(d,'feedback'),open=[],lock=false,found=0,moves=0,cards=[];
+ pairs.forEach(function(p,i){cards.push([p[0],i],[p[1],i])});
+ sh(cards).forEach(function(c){var b=btn(g,'❓','mem-card');b.dataset.t=c[0];b.dataset.i=c[1];
+  b.onclick=function(e){if(lock||b.classList.contains('up')||b.classList.contains('ok'))return;
+   b.textContent=c[0];b.classList.add('up');open.push(b);
+   if(open.length===2){moves++;var a=open[0];
+    if(a.dataset.i===b.dataset.i){a.classList.replace('up','ok');b.classList.replace('up','ok');open=[];found++;
+     if(found===pairs.length){fb.className='feedback ok';fb.textContent='Усе знайдено за '+moves+' ходів! 🎉';star(e)}}
+    else{lock=true;setTimeout(function(){[a,b].forEach(function(x){x.classList.remove('up');x.textContent='❓'});open=[];lock=false},900)}}}})}
+/* Впиши слово (opt.speak — диктант зі звуком) */
+function typeWord(box,q,items,opt){
+ opt=opt||{};var d=mk(box,'<div class="q">'+q+'</div>'),ins=[],got=false;
+ items.forEach(function(it,k){var r=add(d,'tw-row');
+  if(opt.speak){var sp=btn(r,'🔊 Слухати #'+(k+1),'btn small ghost');sp.onclick=function(){try{var u=new SpeechSynthesisUtterance(it[1]);u.lang='uk-UA';u.rate=.8;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(_){r.append(' (звук недоступний)')}}}
+  else r.append(it[0]);
+  var inp=document.createElement('input');inp.autocomplete='off';r.appendChild(inp);ins.push(inp)});
+ var b=btn(d,'Перевірити'),fb=add(d,'feedback');
+ b.onclick=function(e){var n=0;ins.forEach(function(inp,i){var ok=items[i][1].split('|').some(function(a){return norm(a)===norm(inp.value)});inp.className=ok?'ok':'no';if(ok)n++});
+  fb.className='feedback '+(n===items.length?'ok':'no');fb.textContent=n===items.length?'Усе правильно! 🎉':'Правильно: '+n+' з '+items.length+'. Виправ червоні.';
+  if(n===items.length&&!got){got=true;star(e)}}}
+/* Правда чи ні */
+function trueFalse(box,q,items){
+ var d=mk(box,'<div class="q">'+q+'</div>'),i=0,err=0,s=add(d,'tf-s'),bs=add(d,'choices gd-btns'),fb=add(d,'feedback');
+ s.textContent=items[0][0];
+ [[true,'✅ Правда'],[false,'❌ Неправда']].forEach(function(o){var b=btn(bs,o[1],'choice-btn');
+  b.onclick=function(e){if(i>=items.length)return;
+   if(items[i][1]===o[0]){i++;fb.className='feedback ok';fb.textContent='✓';
+    if(i<items.length)s.textContent=items[i][0];else{s.textContent='🎉';fb.textContent='Готово! Помилок: '+err;if(err<=1)star(e)}}
+   else{err++;fb.className='feedback no';fb.textContent='Ні. '+(items[i][2]||'Перевір: мій / моя / моє.')}}})}
+/* Знайди й виправ помилку: клікни хибне слово, потім впиши правильне */
+function errorFix(box,q,items){
+ var d=mk(box,'<div class="q">'+q+'</div>'),done=0,got=false;
+ items.forEach(function(it){var blk=add(d,'ef-item'),t=add(blk,'wp-text'),fx=add(blk,'tw-row'),fb=add(blk,'feedback'),fixed=false;fx.style.display='none';
+  it[0].split(/(\s+)/).forEach(function(x){if(!x.trim()){t.append(x);return}
+   var s=document.createElement('span');s.className='clickable-word';s.textContent=x;t.appendChild(s);
+   s.onclick=function(){if(fixed||fx.style.display!=='none')return;
+    if(clean(x)===it[1]){s.classList.add('no');fx.style.display='flex';fb.className='feedback ok';fb.textContent='Так, це воно! Впиши правильну форму:'}
+    else{s.classList.add('no');setTimeout(function(){s.classList.remove('no')},500);fb.className='feedback no';fb.textContent='Тут усе гаразд. Шукай далі.'}}});
+  var inp=document.createElement('input');fx.appendChild(inp);var b=btn(fx,'OK');
+  b.onclick=function(e){if(fixed)return;if(norm(inp.value)===it[2]){fixed=true;inp.className='ok';fb.className='feedback ok';fb.textContent='Виправлено! ✓';done++;
+    if(done===items.length&&!got){got=true;star(e)}}else{inp.className='no';fb.className='feedback no';fb.textContent='Ще ні. Підстав мій / моя / моє.'}}})}
+return{mk:mk,choice:choice,order:order,genderDrill:genderDrill,fillIn:fillIn,wordPick:wordPick,matchPairs:matchPairs,memory:memory,typeWord:typeWord,trueFalse:trueFalse,errorFix:errorFix}})();
